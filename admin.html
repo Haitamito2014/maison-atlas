@@ -34,6 +34,12 @@ th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left;vertic
 th{font-size:12px;color:var(--muted);position:sticky;top:0;background:#fff}
 td img{width:40px;height:49px;object-fit:cover;border-radius:4px}
 td input[type=number]{width:80px}
+.stk{display:flex;gap:4px;flex-wrap:wrap;min-width:252px}
+.stk label{display:flex;flex-direction:column;align-items:center;font-size:11px;color:var(--muted)}
+.stk input{width:46px!important;padding:5px 4px;text-align:center}
+.stk input.z{border-color:#e7b8b0;background:#fdf3f1}
+.sb{display:inline-block;font-size:11px;font-weight:600;padding:2px 7px;border-radius:999px;margin-top:4px}
+.sb.none{background:#f0ede7;color:var(--muted)}.sb.out{background:#fde8e4;color:#b42318}.sb.low{background:#fff4dd;color:var(--warn)}.sb.ok{background:var(--okbg);color:var(--ok)}
 .tablewrap{overflow:auto;max-height:70vh;border:1px solid var(--line);border-radius:10px}
 .msg{margin-left:8px}.err{color:#b42318}
 #login{max-width:340px;margin:12vh auto}
@@ -54,9 +60,9 @@ td input[type=number]{width:80px}
     <div id="olist"></div>
   </div>
   <div id="v_products" hidden>
-    <div class="row" style="margin-bottom:10px"><select id="ppage"><option value="">Toutes les pages</option><option value="chemises">Chemises</option><option value="luxe">Collection Luxe</option><option value="promos">PROMOS</option></select><input id="pq" placeholder="Rechercher marque…"><button class="btn acc" id="psave">Enregistrer les modifications</button><span id="pmsg" class="msg"></span></div>
-    <p class="muted" style="margin:0 0 8px">« Prix forcé » remplace le prix calculé (laisser vide = calcul automatique). Décocher « En ligne » retire la pièce du site.</p>
-    <div class="tablewrap"><table><thead><tr><th></th><th>Pièce</th><th>Page</th><th>Réf BestSecret</th><th>Achat CHF</th><th>Coût MAD</th><th>Prix vente</th><th>Prix forcé</th><th>Gain</th><th>En ligne</th></tr></thead><tbody id="pbody"></tbody></table></div>
+    <div class="row" style="margin-bottom:10px"><select id="ppage"><option value="">Toutes les pages</option><option value="chemises">Chemises</option><option value="luxe">Collection Luxe</option><option value="promos">PROMOS</option></select><select id="pstock"><option value="">Tous les stocks</option><option value="managed">Stock géré</option><option value="none">Stock non géré</option><option value="low">Stock bas (≤ 2)</option><option value="out">Épuisés</option></select><input id="pq" placeholder="Rechercher marque…"><button class="btn acc" id="psave">Enregistrer les modifications</button><span id="pmsg" class="msg"></span></div>
+    <p class="muted" style="margin:0 0 8px"><b>Stock :</b> laisse toutes les cases vides = stock non géré (toutes les tailles proposées, confirmées par téléphone). Dès qu'une case est remplie, seules les tailles avec stock &gt; 0 sont vendables ; le stock baisse à chaque commande et revient si tu passes la commande en « Annulée ».<br>« Prix forcé » remplace le prix calculé (laisser vide = calcul automatique). Décocher « En ligne » retire la pièce du site.</p>
+    <div class="tablewrap"><table><thead><tr><th></th><th>Pièce</th><th>Page</th><th>Réf BestSecret</th><th>Achat CHF</th><th>Coût MAD</th><th>Prix vente</th><th>Prix forcé</th><th>Gain</th><th>Stock par taille</th><th>En ligne</th></tr></thead><tbody id="pbody"></tbody></table></div>
   </div>
   <div id="v_settings" hidden>
     <div class="box">
@@ -71,6 +77,12 @@ const API_URL = 'https://script.google.com/macros/s/AKfycbxzFx6xKjUAVDkdF3ckkng7
 let KEY = '', DB = null, seen = new Set(), dirty = {}, tab = 'orders';
 try { KEY = sessionStorage.getItem('ma_key') || ''; } catch (e) {}
 const linkify = t => esc(t).replace(/https:\/\/www\.bestsecret\.com\/product\.htm\?code=\d+(&amp;colorCode=\w+)?/g, u => `<a href="${u}" target="_blank" rel="noopener">Ouvrir sur BestSecret ↗</a>`);
+const SZ = t => t === 'chaussures' ? ['39','40','41','42','43','44','45','46'] : ['S','M','L','XL','XXL'];
+function parseStock(v){ const o = {}; let any = false; String(v || '').split(/[,;\n]+/).forEach(part => { const m = /^\s*([^:=]+?)\s*[:=]\s*(-?\d+)\s*$/.exec(part); if (m) { o[m[1].toUpperCase()] = Math.max(0, parseInt(m[2], 10)); any = true; } }); return any ? o : null; }
+function stockState(p){ const o = parseStock(p.stock); if (!o) return ['none','Non géré']; const v = Object.values(o), tot = v.reduce((a,b)=>a+b,0);
+  if (!tot) return ['out','Épuisé']; if (v.some(x => x > 0 && x <= 2)) return ['low','Stock bas · ' + tot]; return ['ok','En stock · ' + tot]; }
+function stockCell(p){ const o = parseStock(p.stock) || {}; const sizes = [...new Set([...SZ(p.t), ...Object.keys(o)])]; const st = stockState(p);
+  return `<div class="stk">${sizes.map(z => `<label>${esc(z)}<input type="number" min="0" step="1" inputmode="numeric" data-stock="${esc(p.id)}" data-size="${esc(z)}" value="${o[z] === undefined ? '' : o[z]}" class="${o[z] === 0 ? 'z' : ''}" placeholder="–"></label>`).join('')}</div><span class="sb ${st[0]}">${st[1]}</span>`; }
 const fmt = n => Math.round(Number(n) || 0).toLocaleString('fr-FR') + ' MAD';
 const esc = s => String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
 async function api(body){
@@ -94,7 +106,7 @@ function renderOrders(){
   const nNew = DB.orders.filter(o => o.statut === 'Nouvelle').length;
   document.getElementById('nnew').textContent = nNew ? '(' + nNew + ')' : '';
   document.getElementById('okpi').innerHTML =
-    `<div class="kpi">Nouvelles<b>${nNew}</b></div><div class="kpi">Commandes (hors annulées)<b>${act.length}</b></div>` +
+    `<div class="kpi">Nouvelles<b>${nNew}</b></div><div class="kpi">Produits épuisés<b>${DB.products.filter(p => stockState(p)[0] === 'out').length}</b></div><div class="kpi">Commandes (hors annulées)<b>${act.length}</b></div>` +
     `<div class="kpi">Chiffre d'affaires<b>${fmt(act.reduce((a,o)=>a+Number(o.total_mad||0),0))}</b></div><div class="kpi">Gain<b class="gain">${fmt(act.reduce((a,o)=>a+Number(o.gain_mad||0),0))}</b></div>`;
   document.getElementById('olist').innerHTML = O.length ? O.map(o => `<div class="order ${o.statut==='Nouvelle'?'new':''}">
     <div class="row"><b>${esc(o.n_commande)}</b><span class="muted">${new Date(o.date).toLocaleString('fr-FR')}</span>
@@ -106,7 +118,8 @@ function renderOrders(){
 }
 function renderProducts(){
   const pg = document.getElementById('ppage').value, q = document.getElementById('pq').value.toLowerCase();
-  const P = DB.products.filter(p => (!pg || p.page === pg) && (!q || (p.b + ' ' + p.n).toLowerCase().includes(q)));
+  const sf = document.getElementById('pstock').value;
+  const P = DB.products.filter(p => (!pg || p.page === pg) && (!q || (p.b + ' ' + p.n).toLowerCase().includes(q)) && (!sf || (sf === 'managed' ? stockState(p)[0] !== 'none' : stockState(p)[0] === sf)));
   document.getElementById('pbody').innerHTML = P.map(p => `<tr>
     <td><img src="${esc(fixSrc(p.src))}" alt="" onerror="this.onerror=null;this.src=this.src.split('/').pop()"></td>
     <td><b>${esc(p.b)}</b><br><span class="muted">${esc(p.n)} · ${esc(p.id)}</span></td><td>${esc(p.page)}</td>
@@ -115,17 +128,22 @@ function renderProducts(){
     <td>${fmt(p.cost)}</td><td><b>${fmt(p.sell)}</b></td>
     <td><input type="number" step="5" placeholder="auto" value="${p.force===''?'':p.force}" data-id="${p.id}" data-k="force"></td>
     <td class="gain">${fmt(p.gain)}</td>
+    <td>${stockCell(p)}</td>
     <td><input type="checkbox" ${p.actif?'checked':''} data-id="${p.id}" data-k="actif"></td></tr>`).join('');
 }
 function renderSettings(){ ['taux','marge','prix_max'].forEach(k => { const el = document.getElementById('s_' + k); if (document.activeElement !== el) el.value = DB.settings[k]; }); }
 document.addEventListener('change', async e => {
   const t = e.target;
-  if (t.dataset.num) { try { await api({ action: 'status', num: t.dataset.num, statut: t.value }); const o = DB.orders.find(o => o.n_commande === t.dataset.num); o.statut = t.value; renderOrders(); } catch (err) { alert(err.message); } }
+  if (t.dataset.num) { try { await api({ action: 'status', num: t.dataset.num, statut: t.value }); await load(false); } catch (err) { alert(err.message); await load(false).catch(() => {}); } }
+  else if (t.dataset.stock) { const id = t.dataset.stock, d = dirty[id] = dirty[id] || { id };
+    const parts = [...document.querySelectorAll(`[data-stock="${CSS.escape(id)}"]`)].filter(i => i.value !== '').map(i => i.dataset.size + ':' + Math.max(0, parseInt(i.value, 10) || 0));
+    d.stock = parts.join(', '); t.classList.toggle('z', t.value === '0');
+    document.getElementById('pmsg').textContent = Object.keys(dirty).length + ' modification(s) non enregistrée(s)'; }
   else if (t.dataset.id) { const d = dirty[t.dataset.id] = dirty[t.dataset.id] || { id: t.dataset.id };
     d[t.dataset.k] = t.dataset.k === 'actif' ? t.checked : (t.dataset.k === 'force' && t.value === '' ? '' : Number(t.value));
     document.getElementById('pmsg').textContent = Object.keys(dirty).length + ' modification(s) non enregistrée(s)'; }
   else if (t.id === 'ofilter') renderOrders();
-  else if (t.id === 'ppage') renderProducts();
+  else if (t.id === 'ppage' || t.id === 'pstock') renderProducts();
 });
 document.getElementById('pq').oninput = renderProducts;
 document.getElementById('psave').onclick = async () => {

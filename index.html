@@ -247,6 +247,10 @@ footer .copy{border-top:1px solid #34322c;margin-top:30px;padding-top:16px;font-
 .sizes{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 4px}
 .size{min-width:52px;height:48px;border:1px solid #cfc8bb;background:#fff;font-weight:600;font-size:14px;border-radius:2px}
 .size.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.size.out{color:#b9b2a6;border-color:var(--line);background:#faf8f4;text-decoration:line-through;cursor:not-allowed}
+.low{color:var(--sale);font-size:13px;font-weight:600;margin-top:6px;min-height:1.2em}
+.card.soldout .ph img{opacity:.55}
+.warn{color:var(--sale);font-size:13px;font-weight:600}
 .slabel{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:space-between}
 .slabel span{color:var(--sale);text-transform:none;letter-spacing:0;font-weight:500}
 .qvrow{display:flex;gap:10px;margin-top:16px}
@@ -436,6 +440,12 @@ const esc = s => String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'
 const byId = id => CAT.find(x => x.id === id);
 const pct = x => x.old ? Math.round((1 - x.sell / x.old) * 100) : 0;
 const cityL = c => CITY_LABEL[c] || c;
+/* stock par taille (null = non géré : toutes tailles, confirmées par téléphone) */
+const stockOf = x => (x && x.stock && typeof x.stock === 'object') ? x.stock : null;
+const sizesOf = x => { const st = stockOf(x); return st ? [...new Set([...SIZES(x.t), ...Object.keys(st)])] : SIZES(x.t); };
+const avail = (x, s) => { const st = stockOf(x); return st ? (st[s] || 0) : 99; };
+const soldOut = x => { const st = stockOf(x); return !!st && !Object.values(st).some(v => v > 0); };
+const inCart = (id, s) => cart.filter(l => l.id === id && l.size === s).reduce((a, l) => a + l.qty, 0);
 
 /* images : chemins du dépôt GitHub */
 function fixSrc(s){ const m = /^images-luxe2\/lx_(\d+)\.jpg$/.exec(s||''); if (!m) return s; return (+m[1] <= 59 ? '2 - luxe partie 1/' : '3 - luxe partie 2/') + 'lx_' + m[1] + '.jpg'; }
@@ -458,17 +468,17 @@ $('yr').textContent = new Date().getFullYear();
 
 /* ===== cartes produit ===== */
 function card(x){
-  const p = pct(x);
-  return `<article class="card">
+  const p = pct(x), so = soldOut(x);
+  return `<article class="card${so ? ' soldout' : ''}">
     <button class="ph" data-qv="${esc(x.id)}" aria-label="Voir ${esc(x.b)} — ${esc(x.n)}">${IMG(x)}
-      <span class="tags">${p > 0 ? `<span class="tag">-${p}%</span>` : ''}${x.page === 'promos' ? '<span class="tag dark">PROMO</span>' : ''}</span>
+      <span class="tags">${so ? '<span class="tag dark">ÉPUISÉ</span>' : `${p > 0 ? `<span class="tag">-${p}%</span>` : ''}${x.page === 'promos' ? '<span class="tag dark">PROMO</span>' : ''}`}</span>
       <span class="qv" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span></button>
     <div class="info"><div class="brand">${esc(x.b)}</div><div class="pname">${esc(x.n)}</div>
       <div class="price ${x.old ? 'promo' : ''}"><span class="now">${fmt(x.sell)}</span>${x.old ? `<span class="old">${fmt(x.old)}</span>` : ''}</div>
-      <button class="btn" data-qv="${esc(x.id)}">${x.page === 'promos' ? 'Profiter de l’offre' : 'Ajouter au panier'}</button></div></article>`;
+      ${so ? '<button class="btn ghost" disabled>Épuisé</button>' : `<button class="btn" data-qv="${esc(x.id)}">${x.page === 'promos' ? 'Profiter de l’offre' : 'Ajouter au panier'}</button>`}</div></article>`;
 }
 function renderFeatured(){
-  const pick = [...CAT].filter(x => x.old).sort((a, b) => pct(b) - pct(a));
+  const pick = [...CAT].filter(x => x.old && !soldOut(x)).sort((a, b) => pct(b) - pct(a));
   const seen = new Set(), out = [];
   for (const x of pick) { const k = x.b + x.page; if (seen.has(k)) continue; seen.add(k); out.push(x); if (out.length === 8) break; }
   $('featured').innerHTML = out.map(card).join('');
@@ -488,7 +498,7 @@ function list(){
   if (sort === 'asc') D = [...D].sort((a, b) => a.sell - b.sell);
   else if (sort === 'desc') D = [...D].sort((a, b) => b.sell - a.sell);
   else if (sort === 'disc') D = [...D].sort((a, b) => pct(b) - pct(a));
-  return D;
+  return [...D.filter(x => !soldOut(x)), ...D.filter(soldOut)];
 }
 function renderShop(){
   const h = HEAD[view];
@@ -541,18 +551,21 @@ function openQV(id){
       <div class="price ${x.old ? 'promo' : ''}"><span class="now">${fmt(x.sell)}</span>${x.old ? `<span class="old">${fmt(x.old)}</span><span class="tag">-${p}%</span>` : ''}</div>
       <p class="desc">${esc(x.b)} — ${esc(x.n.toLowerCase())}. Article de marque authentique, sélectionné par Maison Atlas Homme. Taille et disponibilité confirmées par téléphone avant la livraison.</p>
       <div class="slabel">Choisissez votre taille <span id="qverr" hidden>Merci de choisir une taille</span></div>
-      <div class="sizes" role="radiogroup" aria-label="Taille">${SIZES(x.t).map(s => `<button class="size" role="radio" aria-checked="false" data-size="${s}">${s}</button>`).join('')}</div>
+      <div class="sizes" role="radiogroup" aria-label="Taille">${sizesOf(x).map(s => { const a = avail(x, s); return `<button class="size${a > 0 ? '' : ' out'}" role="radio" aria-checked="false" data-size="${esc(s)}" ${a > 0 ? '' : 'aria-disabled="true" title="Épuisé"'}>${esc(s)}</button>`; }).join('')}</div>
+      <div class="low" id="qvlow"></div>
       <div class="qvrow"><div class="qty"><button data-qvq="-1" aria-label="Moins">−</button><span id="qvq">1</span><button data-qvq="1" aria-label="Plus">+</button></div>
-        <button class="btn" id="qvadd">Ajouter au panier</button></div>
+        <button class="btn" id="qvadd" ${soldOut(x) ? 'disabled' : ''}>${soldOut(x) ? 'Épuisé' : 'Ajouter au panier'}</button></div>
       <p class="small">💵 Paiement à la livraison, en espèces<br>🚚 Livraison Casablanca • Mohammedia • Kénitra${WHATSAPP_NUMBER ? `<br><a href="${esc(waUrl('Bonjour Maison Atlas Homme, je souhaite des informations sur : ' + x.b + ' — ' + x.n + ' (' + fmt(x.sell) + ')'))}" target="_blank" rel="noopener">Une question ? Écrivez-nous sur WhatsApp</a>` : ''}</p>
     </div>`;
   $('qvc').scrollTop = 0;
   openP('qv');
 }
 function addToCart(id, size, qty){
+  const x = byId(id), room = Math.min(10, avail(x, size)) - inCart(id, size);
+  const q = Math.min(qty, room); if (q <= 0) return 0;
   const l = cart.find(l => l.id === id && l.size === size);
-  if (l) l.qty = Math.min(10, l.qty + qty); else cart.push({ id, size, qty: Math.min(10, qty) });
-  renderCart(true);
+  if (l) l.qty += q; else cart.push({ id, size, qty: q });
+  renderCart(true); return q;
 }
 let tt;
 function toast(t){ $('toastt').textContent = t; $('toast').classList.add('show'); clearTimeout(tt); tt = setTimeout(() => $('toast').classList.remove('show'), 3200); }
@@ -584,10 +597,11 @@ function drawCart(){
   if (step === 'cart') {
     $('cbody').innerHTML = cart.map((l, i) => { const x = byId(l.id);
       return `<div class="line">${IMG(x)}<div class="lt"><span class="brand">${esc(x.b)}</span><span style="font-size:14px">${esc(x.n)}</span>
-        <span class="meta">Taille ${esc(l.size)} · ${fmt(x.sell)} / pièce</span>
+        <span class="meta">Taille ${esc(l.size)} · ${fmt(x.sell)} / pièce</span>${(() => { const a = avail(x, l.size); return a <= 0 ? '<span class="warn">Taille épuisée — merci de la retirer</span>' : (l.qty > a ? `<span class="warn">Plus que ${a} disponible${a > 1 ? 's' : ''} — réduisez la quantité</span>` : ''); })()}
         <div class="lrow"><div class="qty"><button data-q="${i}" data-d="-1" aria-label="Diminuer la quantité">−</button><span>${l.qty}</span><button data-q="${i}" data-d="1" aria-label="Augmenter la quantité">+</button></div><b>${fmt(x.sell * l.qty)}</b></div>
         <button class="link" style="align-self:flex-start;margin-top:6px" data-rm="${i}">Supprimer</button></div></div>`; }).join('');
-    $('cfoot').innerHTML = sum + `<button class="btn block" style="margin-top:12px" id="tocheckout">Passer la commande</button><p class="small" style="text-align:center;margin-top:8px">💵 Paiement à la livraison · aucun paiement en ligne</p>`;
+    const blocked = cart.some(l => l.qty > avail(byId(l.id), l.size));
+    $('cfoot').innerHTML = sum + `<button class="btn block" style="margin-top:12px" id="tocheckout" ${blocked ? 'disabled' : ''}>Passer la commande</button>${blocked ? '<p class="warn" style="text-align:center;margin:8px 0 0">Certains articles ne sont plus disponibles dans la quantité choisie.</p>' : ''}<p class="small" style="text-align:center;margin-top:8px">💵 Paiement à la livraison · aucun paiement en ligne</p>`;
   } else {
     const v = window._form || {};
     $('cbody').innerHTML = `<button class="back" data-step="cart">← Retour au panier</button>
@@ -625,13 +639,14 @@ async function confirmOrder(){
   const first = Object.keys(bad).find(k => bad[k]);
   if (first) { const el = document.querySelector(`[data-fld="${first}"] input,[data-fld="${first}"] select,[data-fld="${first}"] textarea`); el && el.focus(); msg.textContent = 'Merci de corriger les champs en rouge.'; return; }
   if (!cart.length) { msg.textContent = 'Votre panier est vide.'; return; }
+  if (cart.some(l => l.qty > avail(byId(l.id), l.size))) { step = 'cart'; drawCart(); return; }
   if (!API_URL || API_URL.indexOf('http') !== 0) { msg.textContent = 'Les commandes en ligne seront bientôt disponibles.'; return; }
   const btn = $('confirm'); sending = true; btn.disabled = true; btn.textContent = 'Envoi en cours…';
   const snap = cart.map(l => ({ ...l, x: byId(l.id) })), total = subtotal(), city = v.ville;
   try {
     const r = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: 'order', customer: v, items: cart }) });
     const j = await r.json();
-    if (!j.ok) throw new Error(j.error || 'Erreur');
+    if (!j.ok) { if (j.stock) { await live(); step = 'cart'; drawCart(); toast(j.error); sending = false; return; } throw new Error(j.error || 'Erreur'); }
     cart = []; window._form = {}; renderCart(); step = 'cart';
     showDone(j, snap, city, typeof j.total === 'number' ? j.total : total);
   } catch (err) {
@@ -657,12 +672,21 @@ function showDone(j, snap, city, total){
 document.addEventListener('click', e => {
   const t = e.target.closest('[data-go],[data-qv],[data-size],[data-qvq],#qvadd,[data-q],[data-rm],#tocheckout,[data-step],#confirm,[data-f],[data-reset],[data-close]');
   if (!t) return;
-  if (t.dataset.size) { qvState.size = t.dataset.size; document.querySelectorAll('.size').forEach(b => { b.classList.toggle('on', b === t); b.setAttribute('aria-checked', b === t); }); $('qverr').hidden = true; return; }
-  if (t.dataset.qvq) { qvState.qty = Math.max(1, Math.min(10, qvState.qty + (+t.dataset.qvq))); $('qvq').textContent = qvState.qty; return; }
+  if (t.dataset.size) { const x = byId(qvState.id), a = avail(x, t.dataset.size);
+    if (a <= 0) { $('qvlow').textContent = 'Taille ' + t.dataset.size + ' épuisée'; return; }
+    qvState.size = t.dataset.size; document.querySelectorAll('.size').forEach(b => { b.classList.toggle('on', b === t); b.setAttribute('aria-checked', b === t); }); $('qverr').hidden = true;
+    const room = Math.min(10, a) - inCart(qvState.id, qvState.size);
+    qvState.qty = Math.max(1, Math.min(qvState.qty, room)); $('qvq').textContent = qvState.qty;
+    $('qvlow').textContent = stockOf(x) && a <= 3 ? (room <= 0 ? 'Vous avez déjà tout le stock de cette taille dans votre panier' : `Plus que ${a} en taille ${t.dataset.size}`) : '';
+    return; }
+  if (t.dataset.qvq) { const x = byId(qvState.id), max = qvState.size ? Math.max(1, Math.min(10, avail(x, qvState.size)) - inCart(qvState.id, qvState.size)) : 10;
+    qvState.qty = Math.max(1, Math.min(max, qvState.qty + (+t.dataset.qvq))); $('qvq').textContent = qvState.qty; return; }
   if (t.id === 'qvadd') { if (!qvState.size) { $('qverr').hidden = false; return; }
-    addToCart(qvState.id, qvState.size, qvState.qty); const x = byId(qvState.id); closeAll(); toast(`${x.b} · taille ${qvState.size} ajouté au panier`); return; }
+    const got = addToCart(qvState.id, qvState.size, qvState.qty); const x = byId(qvState.id);
+    if (!got) { $('qvlow').textContent = 'Stock maximum déjà dans votre panier pour cette taille'; return; }
+    closeAll(); toast(`${x.b} · taille ${qvState.size} ajouté au panier`); return; }
   if (t.dataset.qv) { e.preventDefault(); openQV(t.dataset.qv); return; }
-  if (t.dataset.q !== undefined) { const l = cart[+t.dataset.q]; if (l) { l.qty = Math.max(1, Math.min(10, l.qty + (+t.dataset.d))); renderCart(); drawCart(); } return; }
+  if (t.dataset.q !== undefined) { const l = cart[+t.dataset.q]; if (l) { const max = Math.max(1, Math.min(10, avail(byId(l.id), l.size))); l.qty = Math.max(1, Math.min(max, l.qty + (+t.dataset.d))); renderCart(); drawCart(); } return; }
   if (t.dataset.rm !== undefined) { cart.splice(+t.dataset.rm, 1); renderCart(); drawCart(); return; }
   if (t.id === 'tocheckout') { step = 'form'; drawCart(); $('cbody').scrollTop = 0; return; }
   if (t.dataset.step) { readForm(); step = t.dataset.step; drawCart(); return; }
@@ -682,7 +706,7 @@ document.addEventListener('input', e => { const f = e.target.closest('[data-fld]
 async function live(){
   if (!API_URL || API_URL.indexOf('http') !== 0) return;
   try { const j = await (await fetch(API_URL + '?action=catalog')).json();
-    if (j.ok && j.items && j.items.length) { CAT = j.items; go(view, true); renderCart(); } } catch (e) {}
+    if (j.ok && j.items && j.items.length) { CAT = j.items; go(view, true); renderCart(); if ($('cart').classList.contains('open')) drawCart(); } } catch (e) {}
 }
 go(location.hash.slice(1), true); renderCart(); live();
 </script>
