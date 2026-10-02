@@ -2,153 +2,689 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Maison Atlas Homme</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maison Atlas Homme — Vêtements homme de marque à prix réduits</title>
+<meta name="description" content="Maison Atlas Homme : chemises, polos, t-shirts, vestes et baskets de grandes marques à prix réduits. Livraison à Casablanca, Mohammedia et Kénitra. Paiement à la livraison.">
+<meta name="theme-color" content="#16150f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 fill=%22%2316150f%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2216%22 text-anchor=%22middle%22 fill=%22%23e9e2d6%22 font-family=%22Georgia%22%3EMA%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Maison Atlas Homme">
+<meta property="og:description" content="Le style premium, à prix accessible. Livraison Casablanca, Mohammedia, Kénitra — paiement à la livraison.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images-promos/promo_04.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#faf7f2;--card:#fff;--ink:#1d1b18;--muted:#7a736a;--accent:#b5462b;--line:#e8e1d6;--ok:#1f8a4c;--okbg:#e6f5ec}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
-header{text-align:center;padding:24px 16px 14px;border-bottom:1px solid var(--line);position:relative}
-.logo{font-family:'Playfair Display',serif;font-size:30px}.logo span{color:var(--accent)}
-.tag{color:var(--muted);font-size:13px;margin-top:4px}
-.info{display:inline-block;margin-top:10px;background:var(--okbg);color:var(--ok);font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:999px}
-nav{display:flex;justify-content:center;gap:6px;margin-top:14px;flex-wrap:wrap}
-nav a,.chips a{padding:8px 16px;border-radius:999px;text-decoration:none;color:var(--muted);font-size:14px;font-weight:500;border:1px solid var(--line);cursor:pointer}
-nav a.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.cartbtn{position:fixed;right:16px;bottom:16px;z-index:20;background:var(--accent);color:#fff;border:0;border-radius:999px;padding:14px 20px;font:600 15px Inter,sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.2);cursor:pointer}
-.cartbtn b{background:#fff;color:var(--accent);border-radius:999px;padding:1px 8px;margin-left:6px}
-.head{max-width:1200px;margin:0 auto;padding:16px 16px 0}
-.title{font-family:'Playfair Display',serif;font-size:22px}.sub{color:var(--muted);font-size:13px;margin-top:2px}
-.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.chips a{font-size:13px;padding:5px 12px}
-.chips a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
-.grid{max-width:1200px;margin:0 auto;padding:14px 16px 90px;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
-.img{aspect-ratio:352/429;background:#efebe4;position:relative}.img img{width:100%;height:100%;object-fit:cover;display:block}
-.badge{position:absolute;top:8px;left:8px;background:var(--accent);color:#fff;font-size:12px;font-weight:600;padding:3px 7px;border-radius:4px}
-.body{padding:12px;display:flex;flex-direction:column;gap:4px;flex:1}
-.brand{font-weight:600;font-size:14px}.name{color:var(--muted);font-size:13px;min-height:34px}
-.prices{display:flex;gap:8px;align-items:baseline;margin-top:2px}.old{color:var(--muted);text-decoration:line-through;font-size:13px}.now{color:var(--accent);font-weight:600;font-size:17px}
-.buy{display:flex;gap:6px;margin-top:auto;padding-top:8px}
-select,input,textarea{font:inherit;font-size:14px;padding:8px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);width:100%}
-.buy select{width:auto;flex:0 0 74px}
-.btn{flex:1;background:var(--ink);color:#fff;border:0;border-radius:6px;padding:9px;font:600 13px Inter,sans-serif;cursor:pointer}
-.btn.acc{background:var(--accent)}.btn:disabled{opacity:.5}
-.drawer{position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;z-index:30}
-.drawer.open{display:block}
-.panel{position:absolute;right:0;top:0;bottom:0;width:min(420px,100%);background:var(--bg);overflow:auto;padding:18px 16px}
-.panel h2{font-family:'Playfair Display',serif;margin:0 0 12px;font-size:22px;display:flex;justify-content:space-between}
-.x{background:none;border:0;font-size:26px;cursor:pointer;color:var(--muted)}
-.line{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
-.line img{width:56px;height:68px;object-fit:cover;border-radius:6px;background:#efebe4}
-.line .q{display:flex;align-items:center;gap:6px;margin-top:4px}.q button{width:26px;height:26px;border:1px solid var(--line);background:#fff;border-radius:6px;cursor:pointer}
-.rm{background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:12px}
-.tot{display:flex;justify-content:space-between;font-weight:600;font-size:17px;margin:14px 0}
-.note{background:var(--okbg);color:var(--ok);font-size:13px;padding:10px;border-radius:8px;margin:10px 0}
-.form label{display:block;font-size:13px;margin:10px 0 4px;color:var(--muted)}
-.msg{margin-top:10px;font-size:14px}.err{color:#b42318}
-footer{text-align:center;color:var(--muted);font-size:12px;padding:0 16px 90px}
+:root{
+  --bg:#fff;--soft:#f5f1ea;--sand:#e9e2d6;--ink:#16150f;--char:#2b2a26;--muted:#77726a;--line:#e7e2d9;
+  --bronze:#9a7444;--sale:#a8321f;--ok:#2f6b4a;
+  --r:10px;--hh:60px;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:1240px;margin:0 auto;padding:0 16px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+/* top bar + header */
+.topbar{background:var(--ink);color:#e9e2d6;font-size:12.5px;letter-spacing:.02em;text-align:center;padding:7px 12px}
+.topbar span{white-space:nowrap}
+@media(max-width:599px){.topbar i{display:none}.topbar span{display:block}}
+.topbar i{font-style:normal;opacity:.45;margin:0 8px}
+header.site{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+.hrow{height:var(--hh);display:flex;align-items:center;gap:8px}
+.logo{font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:.14em;text-decoration:none;white-space:nowrap;flex:1;text-align:center}
+.logo small{display:block;font:500 9.5px var(--sans);letter-spacing:.42em;color:var(--bronze);margin-top:-2px}
+.ibtn{width:44px;height:44px;border:0;background:none;display:grid;place-items:center;border-radius:50%;position:relative}
+.ibtn:active{background:var(--soft)}
+.ibtn svg{width:23px;height:23px;stroke:var(--ink);fill:none;stroke-width:1.6}
+.count{position:absolute;top:3px;right:1px;min-width:19px;height:19px;padding:0 5px;border-radius:10px;background:var(--ink);color:#fff;font-size:11px;font-weight:600;display:grid;place-items:center}
+.count[data-n="0"]{display:none}
+.count.bump{animation:bump .45s ease}
+@keyframes bump{30%{transform:scale(1.35)}}
+nav.main{display:none}
+nav.main a,.mnav a{text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+nav.main a{padding:8px 2px;margin:0 14px;border-bottom:1.5px solid transparent;color:var(--char)}
+nav.main a.on,nav.main a:hover{border-color:var(--ink);color:var(--ink)}
+nav.main a.sale{color:var(--sale)}
+@media(min-width:900px){
+  .burger{display:none}
+  .logo{flex:0 0 auto;text-align:left}
+  nav.main{display:flex;flex:1;justify-content:center}
+  .hspacer{display:none}
+}
+/* mobile menu */
+.sheet-bg{position:fixed;inset:0;background:rgba(22,21,15,.45);z-index:60;opacity:0;pointer-events:none;transition:opacity .25s}
+.sheet-bg.open{opacity:1;pointer-events:auto}
+.mnav{position:fixed;top:0;left:0;bottom:0;width:min(330px,86%);background:#fff;z-index:61;transform:translateX(-100%);transition:transform .28s ease;padding:16px 22px;display:flex;flex-direction:column}
+.mnav.open{transform:none}
+.mnav a{display:block;padding:17px 0;border-bottom:1px solid var(--line);font-size:15px}
+.mnav a.sale{color:var(--sale)}
+.mnav .info{margin-top:auto;color:var(--muted);font-size:13px;line-height:1.8}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 26px;border-radius:2px;border:1px solid var(--ink);background:var(--ink);color:#fff;font-size:13.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s,transform .1s}
+.btn:hover{background:var(--char)}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.light{background:#fff;color:var(--ink);border-color:#fff}
+.btn.block{width:100%}
+.btn[disabled]{opacity:.55;pointer-events:none}
+.link{background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:3px;color:var(--muted);font-size:13px}
+
+/* hero */
+.hero{background:var(--soft);overflow:hidden}
+.hero .wrap{display:grid;gap:28px;padding-top:34px;padding-bottom:34px}
+.eyebrow{font-size:11.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--bronze);font-weight:600}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,10vw,74px);line-height:1;margin:10px 0 14px;letter-spacing:.01em}
+.hero p.lead{font-size:17px;color:var(--char);margin:0 0 6px;max-width:30em}
+.hero p.sub{color:var(--muted);margin:0 0 24px}
+.hero .ctas{display:flex;flex-direction:column;gap:10px}
+.hero .pics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-items:end}
+.hero .pics img{width:100%;aspect-ratio:352/429;object-fit:cover;background:var(--sand)}
+.hero .pics img:nth-child(2){transform:translateY(-14px)}
+@media(min-width:600px){.hero .ctas{flex-direction:row}}
+@media(min-width:900px){
+  .hero .wrap{grid-template-columns:1.05fr 1fr;align-items:center;padding-top:64px;padding-bottom:64px}
+  .hero .pics{gap:14px}.hero .pics img:nth-child(2){transform:translateY(-30px)}
+}
+.assure{border-bottom:1px solid var(--line)}
+.assure .wrap{display:flex;gap:10px 26px;flex-wrap:wrap;justify-content:center;padding-top:14px;padding-bottom:14px;font-size:13px;color:var(--char)}
+.assure span{display:inline-flex;align-items:center;gap:7px}
+.assure svg{width:17px;height:17px;stroke:var(--bronze);fill:none;stroke-width:1.7}
+
+/* sections */
+section.blk{padding:46px 0}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:20px}
+.sh h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,6vw,40px);line-height:1.05;margin:4px 0 0}
+.sh a{font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;text-decoration:none;border-bottom:1px solid;white-space:nowrap}
+
+/* categories */
+.cats{display:grid;gap:14px}
+@media(min-width:760px){.cats{grid-template-columns:repeat(3,1fr)}}
+.cat{position:relative;display:block;text-decoration:none;background:var(--soft);overflow:hidden;border-radius:2px}
+.cat img{width:100%;aspect-ratio:4/3.2;object-fit:cover;object-position:center 20%;transition:transform .6s ease}
+@media(min-width:760px){.cat img{aspect-ratio:352/429}}
+.cat:hover img{transform:scale(1.03)}
+.cat .ov{position:absolute;inset:auto 0 0 0;padding:18px;background:linear-gradient(transparent,rgba(22,21,15,.78));color:#fff}
+.cat h3{font-family:var(--serif);font-weight:500;font-size:28px;margin:0;letter-spacing:.03em}
+.cat p{margin:2px 0 10px;font-size:14px;opacity:.9}
+.cat .go{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;border-bottom:1px solid #fff;padding-bottom:2px}
+
+/* shop toolbar */
+.shophead{padding:26px 0 8px}
+.shophead h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,7vw,46px);margin:2px 0 4px;line-height:1.05}
+.shophead p{margin:0;color:var(--muted);font-size:14px}
+.bar{position:sticky;top:var(--hh);z-index:20;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);margin-bottom:18px}
+.bar .wrap{display:flex;align-items:center;gap:10px;min-height:54px}
+.bar .n{color:var(--muted);font-size:13px;margin-right:auto}
+.fbtn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border:1px solid var(--line);background:#fff;border-radius:2px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.fbtn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8}
+.fbtn b{background:var(--ink);color:#fff;border-radius:9px;font-size:11px;padding:1px 7px}
+.desk-f{display:none;gap:8px;align-items:center;flex-wrap:wrap}
+@media(min-width:900px){.fbtn.m{display:none}.desk-f{display:flex}}
+.chip{min-height:38px;padding:0 15px;border:1px solid var(--line);background:#fff;border-radius:20px;font-size:13.5px;color:var(--char)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+select.sort{min-height:40px;border:1px solid var(--line);background:#fff;padding:0 10px;font:inherit;font-size:13.5px;border-radius:2px;color:var(--ink)}
+.tgl{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;cursor:pointer;user-select:none}
+.tgl input{width:18px;height:18px;accent-color:var(--ink)}
+
+/* product grid */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 12px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr);gap:30px 18px}}
+@media(min-width:1050px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{display:flex;flex-direction:column;min-width:0}
+.card .ph{position:relative;background:var(--soft);aspect-ratio:352/429;overflow:hidden;border:0;padding:0;width:100%;display:block}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,opacity .3s}
+@media(hover:hover){.card:hover .ph img{transform:scale(1.035)}}
+.tags{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.tag{background:var(--sale);color:#fff;font-size:11px;font-weight:600;letter-spacing:.08em;padding:3px 7px;border-radius:2px}
+.tag.dark{background:var(--ink)}
+.qv{position:absolute;right:8px;bottom:8px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center}
+.qv svg{width:18px;height:18px;stroke:var(--ink);fill:none;stroke-width:1.7}
+.card .info{padding-top:10px;display:flex;flex-direction:column;gap:2px;flex:1}
+.brand{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--char)}
+.pname{font-size:14px;color:var(--muted);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.7em}
+.price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+.now{font-size:18px;font-weight:600;color:var(--ink)}
+.price.promo .now{color:var(--sale)}
+.old{font-size:13px;color:var(--muted);text-decoration:line-through}
+.card .btn{min-height:44px;font-size:11.5px;padding:0 10px;margin-top:auto;letter-spacing:.1em}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0}
+
+/* trust / steps / reviews */
+.trust{background:var(--soft)}
+.tgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 14px}
+@media(min-width:900px){.tgrid{grid-template-columns:repeat(5,1fr)}}
+.titem{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;font-size:14px;font-weight:500}
+.titem svg{width:28px;height:28px;stroke:var(--bronze);fill:none;stroke-width:1.5}
+.steps{display:grid;gap:24px;counter-reset:s}
+@media(min-width:800px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{display:flex;gap:16px;align-items:flex-start}
+.step .num{flex:0 0 auto;width:52px;height:52px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:24px}
+.step h3{margin:4px 0 2px;font-size:16px}
+.step p{margin:0;color:var(--muted);font-size:14px}
+.reviews{display:grid;gap:14px}
+@media(min-width:800px){.reviews{grid-template-columns:repeat(3,1fr)}}
+.rev{border:1px solid var(--line);padding:20px;background:#fff}
+.rev .st{color:var(--bronze);letter-spacing:2px}
+.rev p{margin:8px 0;font-size:15px}
+.rev small{color:var(--muted)}
+.rev-empty{border:1px dashed var(--line);padding:26px;text-align:center;color:var(--muted)}
+
+/* footer */
+footer.site{background:var(--ink);color:#d9d3c7;padding:46px 0 110px;margin-top:10px}
+.fgrid{display:grid;gap:28px}
+@media(min-width:800px){.fgrid{grid-template-columns:1.4fr 1fr 1fr}}
+footer .flogo{font-family:var(--serif);font-size:24px;letter-spacing:.14em;color:#fff}
+footer h4{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#fff;margin:0 0 12px}
+footer ul{list-style:none;padding:0;margin:0;line-height:2.1;font-size:14.5px}
+footer a{text-decoration:none}footer a:hover{text-decoration:underline}
+footer .copy{border-top:1px solid #34322c;margin-top:30px;padding-top:16px;font-size:12.5px;color:#8f897d}
+
+/* floating whatsapp */
+.wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:35;width:56px;height:56px;border-radius:50%;background:#1f7a4d;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.18);transition:transform .2s}
+.wa:hover{transform:translateY(-2px)}
+.wa svg{width:28px;height:28px;fill:#fff}
+
+/* drawers & modals */
+.panel{position:fixed;z-index:70;background:#fff;display:flex;flex-direction:column;transition:transform .3s ease}
+.cart{top:0;right:0;bottom:0;width:min(440px,100%);transform:translateX(100%)}
+.cart.open{transform:none}
+.phead{display:flex;align-items:center;justify-content:space-between;padding:12px 8px 12px 20px;border-bottom:1px solid var(--line)}
+.phead h2{font-family:var(--serif);font-weight:500;font-size:26px;margin:0}
+.pbody{flex:1;overflow:auto;padding:4px 20px 20px;-webkit-overflow-scrolling:touch}
+.pfoot{border-top:1px solid var(--line);padding:14px 20px calc(14px + env(safe-area-inset-bottom));background:#fff}
+.line{display:flex;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.line img{width:78px;height:95px;object-fit:cover;background:var(--soft);flex:0 0 auto}
+.line .lt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.line .meta{font-size:13px;color:var(--muted)}
+.lrow{display:flex;align-items:center;justify-content:space-between;margin-top:auto;gap:8px}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line)}
+.qty button{width:38px;height:38px;border:0;background:#fff;font-size:18px}
+.qty span{min-width:28px;text-align:center;font-weight:600}
+.sumrow{display:flex;justify-content:space-between;font-size:14.5px;padding:3px 0;color:var(--char)}
+.sumrow.tot{font-size:18px;font-weight:600;color:var(--ink);padding-top:8px;margin-top:6px;border-top:1px solid var(--line)}
+.note{background:var(--soft);padding:14px;font-size:14px;line-height:1.55;margin:14px 0}
+.note b{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+.cempty{text-align:center;padding:50px 10px;color:var(--muted)}
+.cempty svg{width:46px;height:46px;stroke:var(--sand);fill:none;stroke-width:1.3;margin:0 auto 10px}
+.form label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px;color:var(--char)}
+.form input,.form select,.form textarea{width:100%;min-height:50px;border:1px solid #d9d3c7;border-radius:2px;padding:12px;font:inherit;font-size:16px;background:#fff;color:var(--ink)}
+.form textarea{min-height:84px;resize:vertical}
+.form .err-t{color:var(--sale);font-size:13px;margin-top:4px;display:none}
+.form .bad input,.form .bad select,.form .bad textarea{border-color:var(--sale)}
+.form .bad .err-t{display:block}
+.recap{border:1px solid var(--line);padding:12px 14px;margin:12px 0 4px;font-size:14px}
+.recap div{display:flex;justify-content:space-between;gap:10px;padding:3px 0}
+.recap div span:first-child{color:var(--char)}
+.recap div span:last-child{white-space:nowrap}
+.back{display:inline-flex;align-items:center;gap:6px;background:none;border:0;padding:12px 0 0;font-size:13px;color:var(--muted)}
+.msg{font-size:14px;margin-top:10px;color:var(--sale)}
+
+.modal{left:0;right:0;bottom:0;max-height:92vh;border-radius:14px 14px 0 0;transform:translateY(105%)}
+.modal.open{transform:none}
+@media(min-width:900px){
+  .modal{left:50%;top:50%;bottom:auto;right:auto;width:min(920px,92vw);max-height:88vh;border-radius:4px;transform:translate(-50%,-46%);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+  .modal.open{transform:translate(-50%,-50%);opacity:1;pointer-events:auto}
+}
+.qvx{position:absolute;top:8px;right:8px;z-index:2;background:rgba(255,255,255,.9)}
+.qvgrid{display:grid;overflow:auto}
+@media(min-width:900px){.qvgrid{grid-template-columns:1fr 1fr}}
+.qvimg{background:var(--soft)}
+.qvimg img{width:100%;aspect-ratio:352/429;object-fit:cover;max-height:56vh}
+@media(min-width:900px){.qvimg img{max-height:none;height:100%}}
+.qvbody{padding:20px 20px calc(20px + env(safe-area-inset-bottom))}
+.qvbody h2{font-family:var(--serif);font-weight:500;font-size:28px;line-height:1.15;margin:4px 0 6px}
+.qvbody .price .now{font-size:24px}
+.desc{color:var(--char);font-size:14.5px;margin:6px 0 16px}
+.sizes{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 4px}
+.size{min-width:52px;height:48px;border:1px solid #cfc8bb;background:#fff;font-weight:600;font-size:14px;border-radius:2px}
+.size.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.slabel{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:space-between}
+.slabel span{color:var(--sale);text-transform:none;letter-spacing:0;font-weight:500}
+.qvrow{display:flex;gap:10px;margin-top:16px}
+.qvrow .qty button{height:50px}
+.qvrow .btn{flex:1}
+.small{font-size:13px;color:var(--muted);margin-top:12px;line-height:1.6}
+.ok-ic{width:62px;height:62px;border-radius:50%;border:1px solid var(--ok);display:grid;place-items:center;margin:4px auto 12px}
+.ok-ic svg{width:28px;height:28px;stroke:var(--ok);fill:none;stroke-width:2}
+.conf{text-align:center}
+.conf h2{font-family:var(--serif);font-weight:500;font-size:32px;margin:0 0 6px}
+.conf .recap{text-align:left}
+
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 16px;border-radius:3px;font-size:14px;z-index:80;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;display:flex;gap:14px;align-items:center;width:max-content;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.toast button{background:none;border:0;color:#e9d9bf;text-decoration:underline;font-weight:600;padding:0}
+body.lock{overflow:hidden}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<header>
-  <div class="logo">Maison <span>Atlas</span> Homme</div>
-  <div class="tag">Vêtements de marque à prix réduits</div>
-  <div class="info">Paiement à la livraison en espèces · Casablanca, Mohammedia, Kenitra</div>
-  <nav><a data-p="chemises">Chemises</a><a data-p="luxe">Collection Luxe</a><a data-p="promos">PROMOS</a></nav>
+<div class="topbar"><span>🚚 Livraison Casablanca • Mohammedia • Kénitra</span><i>|</i><span>💵 Paiement à la livraison</span></div>
+<header class="site">
+  <div class="wrap hrow">
+    <button class="ibtn burger" id="burger" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+    <a class="logo" href="#accueil" data-go="accueil">MAISON ATLAS<small>HOMME</small></a>
+    <nav class="main" aria-label="Navigation principale">
+      <a href="#accueil" data-go="accueil">Accueil</a><a href="#chemises" data-go="chemises">Chemises</a><a href="#luxe" data-go="luxe">Collection Luxe</a><a href="#promos" data-go="promos" class="sale">Promos</a>
+    </nav>
+    <button class="ibtn" id="cartbtn" aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="count" id="count" data-n="0">0</span></button>
+  </div>
 </header>
-<div class="head" id="head"></div>
-<div class="grid" id="grid"></div>
-<footer>Maison Atlas Homme · Livraison à Casablanca, Mohammedia et Kenitra · Paiement en espèces à la livraison</footer>
-<button class="cartbtn" id="cartbtn">Panier <b id="count">0</b></button>
-<div class="drawer" id="drawer"><div class="panel">
-  <h2>Mon panier <button class="x" id="close" aria-label="Fermer">×</button></h2>
-  <div id="lines"></div>
-  <div class="tot"><span>Total</span><span id="total">0 MAD</span></div>
-  <div class="note">Paiement <b>à la livraison, en espèces uniquement</b>. Livraison à <b>Casablanca, Mohammedia et Kenitra</b>. Nous vous appelons pour confirmer la taille et la disponibilité.</div>
-  <form class="form" id="form">
-    <label>Nom complet</label><input name="nom" required maxlength="80">
-    <label>Téléphone</label><input name="telephone" required inputmode="tel" placeholder="06 XX XX XX XX" maxlength="20">
-    <label>Ville</label><select name="ville" required><option value="">Choisir…</option><option>Casablanca</option><option>Mohammedia</option><option>Kenitra</option></select>
-    <label>Adresse de livraison</label><textarea name="adresse" required rows="3" maxlength="250"></textarea>
-    <label>Remarque (optionnel)</label><input name="note" maxlength="200">
-    <button class="btn acc" style="width:100%;margin-top:14px;padding:13px;font-size:15px" id="send">Commander — paiement à la livraison</button>
-    <div class="msg" id="msg"></div>
-  </form>
-</div></div>
+
+<div class="sheet-bg" id="bg"></div>
+<nav class="mnav" id="mnav" aria-label="Menu mobile">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span class="logo" style="flex:0;text-align:left;font-size:18px">MAISON ATLAS</span><button class="ibtn" data-close aria-label="Fermer le menu"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <a href="#accueil" data-go="accueil">Accueil</a><a href="#chemises" data-go="chemises">Chemises</a><a href="#luxe" data-go="luxe">Collection Luxe</a><a href="#promos" data-go="promos" class="sale">Promos</a>
+  <a href="#" data-wa class="wa-link" hidden>Contact WhatsApp</a>
+  <div class="info">🚚 Livraison Casablanca • Mohammedia • Kénitra<br>💵 Paiement à la livraison, en espèces</div>
+</nav>
+
+<main id="main">
+<!-- ACCUEIL -->
+<div id="v-home">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Sélection homme</div>
+        <h1>Maison Atlas Homme</h1>
+        <p class="lead">Le style premium, à prix accessible.</p>
+        <p class="sub">Découvrez notre sélection de vêtements de grandes marques pour homme.</p>
+        <div class="ctas"><a class="btn" href="#luxe" data-go="luxe">Découvrir la collection</a><a class="btn ghost" href="#promos" data-go="promos">Voir les promotions</a></div>
+      </div>
+      <div class="pics" aria-hidden="true">
+        <img src="images-promos/promo_04.jpg" alt="" width="352" height="429" fetchpriority="high">
+        <img data-src="images-luxe2/lx_074.jpg" alt="" width="352" height="429" class="fx">
+        <img src="images-promos/promo_17.jpg" alt="" width="352" height="429">
+      </div>
+    </div>
+  </section>
+  <div class="assure"><div class="wrap">
+    <span><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>Livraison Casablanca • Mohammedia • Kénitra</span>
+    <span><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="1"/><circle cx="12" cy="12" r="2.5"/></svg>Paiement à la livraison</span>
+    <span><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Commande confirmée par téléphone</span>
+  </div></div>
+
+  <section class="blk"><div class="wrap">
+    <div class="sh"><div><div class="eyebrow">Nos univers</div><h2>Catégories</h2></div></div>
+    <div class="cats">
+      <a class="cat" href="#chemises" data-go="chemises"><img data-src="images/chemise_12.jpg" alt="Chemises homme de marque" class="fx" loading="lazy"><div class="ov"><h3>Chemises</h3><p>Coupes ajustées et classiques, de grandes marques.</p><span class="go">Découvrir</span></div></a>
+      <a class="cat" href="#luxe" data-go="luxe"><img data-src="images-luxe2/lx_074.jpg" alt="Collection luxe homme" class="fx" loading="lazy"><div class="ov"><h3>Collection Luxe</h3><p>Tommy Hilfiger, Lacoste, Hugo, Boss, Armani…</p><span class="go">Découvrir</span></div></a>
+      <a class="cat" href="#promos" data-go="promos"><img data-src="images-promos/promo_01.jpg" alt="Promotions vestes et baskets homme" class="fx" loading="lazy"><div class="ov"><h3>Promotions</h3><p>Vestes, surchemises, polos et baskets à prix réduits.</p><span class="go">Découvrir</span></div></a>
+    </div>
+  </div></section>
+
+  <section class="blk" style="padding-top:0"><div class="wrap">
+    <div class="sh"><div><div class="eyebrow">Meilleures offres</div><h2>Sélection du moment</h2></div><a href="#promos" data-go="promos">Tout voir</a></div>
+    <div class="grid" id="featured"></div>
+  </div></section>
+</div>
+
+<!-- BOUTIQUE -->
+<div id="v-shop" hidden>
+  <div class="wrap shophead"><div class="eyebrow" id="s-eyebrow">Boutique</div><h2 id="s-title">Chemises</h2><p id="s-sub"></p></div>
+  <div class="bar"><div class="wrap">
+    <span class="n" id="s-n"></span>
+    <div class="desk-f" id="deskf"></div>
+    <button class="fbtn m" id="fopen"><svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Filtrer &amp; trier <b id="fcount" hidden></b></button>
+  </div></div>
+  <div class="wrap"><div class="grid" id="grid"></div></div>
+</div>
+
+<!-- confiance -->
+<section class="blk trust" id="confiance"><div class="wrap">
+  <div class="sh" style="justify-content:center;text-align:center"><div><div class="eyebrow">Pourquoi nous</div><h2>Achetez en toute confiance</h2></div></div>
+  <div class="tgrid">
+    <div class="titem"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="1"/><circle cx="12" cy="12" r="2.5"/></svg>Paiement à la livraison</div>
+    <div class="titem"><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>Livraison rapide</div>
+    <div class="titem"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Commande confirmée par téléphone</div>
+    <div class="titem"><svg viewBox="0 0 24 24"><path d="M8 3l4 3 4-3 4 4-3 3v11H7V10L4 7z"/></svg>Sélection homme de marque</div>
+    <div class="titem"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Service client local</div>
+  </div>
+</div></section>
+
+<section class="blk"><div class="wrap">
+  <div class="sh"><div><div class="eyebrow">Simple et sans risque</div><h2>Comment ça marche ?</h2></div></div>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><div><h3>Choisissez vos articles</h3><p>Sélectionnez vos pièces et votre taille, puis ajoutez-les au panier.</p></div></div>
+    <div class="step"><div class="num">2</div><div><h3>Passez votre commande</h3><p>Renseignez votre nom, téléphone et adresse. Nous vous appelons pour confirmer.</p></div></div>
+    <div class="step"><div class="num">3</div><div><h3>Recevez et payez à la livraison</h3><p>Vous payez en espèces uniquement à la réception de votre commande.</p></div></div>
+  </div>
+</div></section>
+
+<section class="blk" style="padding-top:0"><div class="wrap">
+  <div class="sh"><div><div class="eyebrow">Avis</div><h2>Ils nous font confiance</h2></div></div>
+  <div id="reviews"></div>
+</div></section>
+</main>
+
+<footer class="site"><div class="wrap">
+  <div class="fgrid">
+    <div><div class="flogo">MAISON ATLAS HOMME</div><p style="margin:8px 0 0;max-width:26em">Vêtements homme de marque à prix réduits.</p>
+      <ul id="socials" style="margin-top:12px"></ul></div>
+    <div><h4>Boutique</h4><ul><li><a href="#accueil" data-go="accueil">Accueil</a></li><li><a href="#chemises" data-go="chemises">Chemises</a></li><li><a href="#luxe" data-go="luxe">Collection Luxe</a></li><li><a href="#promos" data-go="promos">Promotions</a></li><li class="wa-li" hidden><a href="#" data-wa>Contact</a></li></ul></div>
+    <div><h4>Informations</h4><ul><li>Paiement à la livraison</li><li>Livraison Casablanca</li><li>Livraison Mohammedia</li><li>Livraison Kénitra</li></ul></div>
+  </div>
+  <div class="copy">© <span id="yr"></span> Maison Atlas Homme</div>
+</div></footer>
+
+<a class="wa" id="wa" href="#" data-wa target="_blank" rel="noopener" aria-label="Nous contacter sur WhatsApp" hidden><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.5-.3z"/></svg></a>
+
+<!-- filtre mobile -->
+<div class="panel modal" id="fsheet" role="dialog" aria-modal="true" aria-label="Filtrer et trier">
+  <div class="phead"><h2>Filtrer &amp; trier</h2><button class="ibtn" data-close aria-label="Fermer"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="pbody" id="fbody"></div>
+  <div class="pfoot"><button class="btn block" data-close id="fapply">Voir les articles</button></div>
+</div>
+
+<!-- quick view -->
+<div class="panel modal" id="qv" role="dialog" aria-modal="true" aria-label="Détails du produit">
+  <button class="ibtn qvx" data-close aria-label="Fermer"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="qvgrid" id="qvc"></div>
+</div>
+
+<!-- panier / checkout -->
+<aside class="panel cart" id="cart" role="dialog" aria-modal="true" aria-label="Panier">
+  <div class="phead"><h2 id="ctitle">Votre panier</h2><button class="ibtn" data-close aria-label="Fermer le panier"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="pbody" id="cbody"></div>
+  <div class="pfoot" id="cfoot"></div>
+</aside>
+
+<!-- confirmation -->
+<div class="panel modal" id="done" role="dialog" aria-modal="true" aria-label="Commande confirmée"><div class="pbody conf" id="donec" style="padding-top:24px"></div></div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><span id="toastt"></span><button id="toastb">Voir le panier</button></div>
+
 <script>
+/* ===== CONFIGURATION (à compléter) ===== */
 const API_URL = 'https://script.google.com/macros/s/AKfycbxzFx6xKjUAVDkdF3ckkng7SYuVw9eXeaOR_qqULSqozyYvkdrYiRjDNNHwU4H05pewUA/exec';
+const WHATSAPP_NUMBER = '';   // ex. '212612345678' (format international, sans + ni espaces). Vide = bouton caché.
+const WHATSAPP_MESSAGE = 'Bonjour Maison Atlas Homme, je souhaite avoir des informations sur un article.';
+const INSTAGRAM_URL = '';     // ex. 'https://instagram.com/votrecompte'  (vide = caché)
+const FACEBOOK_URL = '';      // ex. 'https://facebook.com/votrepage'     (vide = caché)
+/* Vrais avis clients uniquement. Exemple de format :
+   { nom: 'Prénom N.', ville: 'Casablanca', note: 5, texte: 'Texte de l’avis' } */
+const REVIEWS = [];
+/* ======================================= */
+
 let CAT = [{"id": "C001", "page": "chemises", "t": "chemise", "b": "Pierre Cardin", "n": "Chemise manches longues – modern fit", "sell": 274, "old": 760, "src": "images/chemise_01.jpg"}, {"id": "C002", "page": "chemises", "t": "chemise", "b": "Venti", "n": "Chemise manches longues – modern fit", "sell": 306, "old": 541, "src": "images/chemise_02.jpg"}, {"id": "C003", "page": "chemises", "t": "chemise", "b": "Jack & Jones", "n": "Chemise manches longues Charge", "sell": 322, "old": 380, "src": "images/chemise_03.jpg"}, {"id": "C004", "page": "chemises", "t": "chemise", "b": "Sublevel", "n": "Chemise manches longues – regular fit", "sell": 322, "old": 541, "src": "images/chemise_04.jpg"}, {"id": "C005", "page": "chemises", "t": "chemise", "b": "Hatico", "n": "Chemise manches longues – modern fit", "sell": 339, "old": 656, "src": "images/chemise_05.jpg"}, {"id": "C006", "page": "chemises", "t": "chemise", "b": "Pure", "n": "Chemise manches courtes – modern fit", "sell": 339, "old": 656, "src": "images/chemise_06.jpg"}, {"id": "C007", "page": "chemises", "t": "chemise", "b": "Dan John", "n": "Chemise manches longues – slim fit", "sell": 355, "old": 438, "src": "images/chemise_07.jpg"}, {"id": "C008", "page": "chemises", "t": "chemise", "b": "Matinique", "n": "Chemise manches longues Matrostol BD", "sell": 355, "old": 760, "src": "images/chemise_08.jpg"}, {"id": "C009", "page": "chemises", "t": "chemise", "b": "Tom Tailor", "n": "Chemise manches longues – relaxed fit", "sell": 355, "old": 541, "src": "images/chemise_09.jpg"}, {"id": "C010", "page": "chemises", "t": "chemise", "b": "Eterna", "n": "Chemise manches longues – casual fit", "sell": 387, "old": 760, "src": "images/chemise_10.jpg"}, {"id": "C011", "page": "chemises", "t": "chemise", "b": "Jack & Jones", "n": "Chemise en lin mélangé Shelo – regular fit", "sell": 387, "old": 495, "src": "images/chemise_11.jpg"}, {"id": "C012", "page": "chemises", "t": "chemise", "b": "Olymp", "n": "Chemise manches longues – super slim fit", "sell": 387, "old": 864, "src": "images/chemise_12.jpg"}, {"id": "C013", "page": "chemises", "t": "chemise", "b": "S.Oliver", "n": "Chemise manches longues – regular fit", "sell": 387, "old": 656, "src": "images/chemise_13.jpg"}, {"id": "C014", "page": "chemises", "t": "chemise", "b": "Seidensticker", "n": "Chemise manches longues – regular fit", "sell": 387, "old": 656, "src": "images/chemise_14.jpg"}, {"id": "C015", "page": "chemises", "t": "chemise", "b": "Selected Homme", "n": "Chemise manches longues – slim fit", "sell": 387, "old": 541, "src": "images/chemise_15.jpg"}, {"id": "C016", "page": "chemises", "t": "chemise", "b": "Camicissima", "n": "Chemise manches longues – slim fit", "sell": 419, "old": 760, "src": "images/chemise_16.jpg"}, {"id": "C017", "page": "chemises", "t": "chemise", "b": "Edwin", "n": "Chemise manches longues Labour", "sell": 419, "old": 1393, "src": "images/chemise_17.jpg"}, {"id": "C018", "page": "chemises", "t": "chemise", "b": "Pierre Cardin", "n": "Chemise manches longues – casual fit", "sell": 419, "old": 760, "src": "images/chemise_18.jpg"}, {"id": "C019", "page": "chemises", "t": "chemise", "b": "Ben Sherman", "n": "Chemise manches longues", "sell": 435, "old": 806, "src": "images/chemise_19.jpg"}, {"id": "C020", "page": "chemises", "t": "chemise", "b": "Dan John", "n": "Chemise Fantasia Foglia – slim fit", "sell": 435, "old": 438, "src": "images/chemise_20.jpg"}, {"id": "C021", "page": "chemises", "t": "chemise", "b": "Jack & Jones", "n": "Chemise Blaactive – slim fit", "sell": 435, "old": 541, "src": "images/chemise_21.jpg"}, {"id": "C022", "page": "chemises", "t": "chemise", "b": "Seidensticker", "n": "Chemise manches courtes – body fit", "sell": 435, "old": 656, "src": "images/chemise_22.jpg"}, {"id": "C023", "page": "chemises", "t": "chemise", "b": "Selected Homme", "n": "Chemise en lin mélangé Claus", "sell": 435, "old": 656, "src": "images/chemise_23.jpg"}, {"id": "C024", "page": "chemises", "t": "chemise", "b": "Ben Sherman", "n": "Chemise manches longues", "sell": 451, "old": 921, "src": "images/chemise_24.jpg"}, {"id": "C025", "page": "chemises", "t": "chemise", "b": "Gianni Feraud", "n": "Chemise manches longues – slim fit", "sell": 451, "old": 1082, "src": "images/chemise_25.jpg"}, {"id": "C026", "page": "chemises", "t": "chemise", "b": "Lawrence Grey", "n": "Chemise manches longues", "sell": 451, "old": 864, "src": "images/chemise_26.jpg"}, {"id": "C027", "page": "chemises", "t": "chemise", "b": "Remus Uomo", "n": "Chemise Frank – slim fit", "sell": 451, "old": 864, "src": "images/chemise_27.jpg"}, {"id": "C028", "page": "chemises", "t": "chemise", "b": "Selected Homme", "n": "Chemise manches longues – regular fit", "sell": 451, "old": 656, "src": "images/chemise_28.jpg"}, {"id": "C029", "page": "chemises", "t": "chemise", "b": "Crew Clothing Company", "n": "Chemise manches longues – classic fit", "sell": 468, "old": 737, "src": "images/chemise_29.jpg"}, {"id": "C030", "page": "chemises", "t": "chemise", "b": "Eterna", "n": "Chemise manches longues – slim fit", "sell": 468, "old": 760, "src": "images/chemise_30.jpg"}, {"id": "C031", "page": "chemises", "t": "chemise", "b": "Hechter Paris", "n": "Chemise manches longues – regular fit", "sell": 468, "old": 967, "src": "images/chemise_31.jpg"}, {"id": "C032", "page": "chemises", "t": "chemise", "b": "Jack & Jones", "n": "Surchemise Travis", "sell": 468, "old": 541, "src": "images/chemise_32.jpg"}, {"id": "C033", "page": "chemises", "t": "chemise", "b": "Pure", "n": "Chemise technique col requin", "sell": 468, "old": 1290, "src": "images/chemise_33.jpg"}, {"id": "C034", "page": "chemises", "t": "chemise", "b": "Seidensticker", "n": "Chemise manches longues", "sell": 468, "old": 656, "src": "images/chemise_34.jpg"}, {"id": "C035", "page": "chemises", "t": "chemise", "b": "Ben Sherman", "n": "Surchemise", "sell": 516, "old": 1071, "src": "images/chemise_35.jpg"}, {"id": "C036", "page": "chemises", "t": "chemise", "b": "Claudio Campione", "n": "Chemise manches longues – modern fit", "sell": 516, "old": 967, "src": "images/chemise_36.jpg"}, {"id": "C037", "page": "chemises", "t": "chemise", "b": "Fil Noir", "n": "Chemise manches longues", "sell": 516, "old": 1382, "src": "images/chemise_37.jpg"}, {"id": "C038", "page": "chemises", "t": "chemise", "b": "Jack & Jones", "n": "Surchemise", "sell": 516, "old": 805, "src": "images/chemise_38.jpg"}, {"id": "C039", "page": "chemises", "t": "chemise", "b": "Olymp", "n": "Chemise manches longues – comfort fit", "sell": 516, "old": 656, "src": "images/chemise_39.jpg"}, {"id": "C040", "page": "chemises", "t": "chemise", "b": "Selected Homme", "n": "Chemise Mance – slim fit", "sell": 516, "old": 656, "src": "images/chemise_40.jpg"}, {"id": "L001", "page": "luxe", "t": "chemise", "b": "Michael Kors", "n": "Chemise manches longues – slim fit", "sell": 564, "old": 1186, "src": "images-luxe2/lx_001.jpg"}, {"id": "L002", "page": "luxe", "t": "chemise", "b": "Napapijri", "n": "Chemise manches longues", "sell": 564, "old": 967, "src": "images-luxe2/lx_002.jpg"}, {"id": "L003", "page": "luxe", "t": "chemise", "b": "Hugo", "n": "Chemise manches courtes", "sell": 580, "old": 760, "src": "images-luxe2/lx_003.jpg"}, {"id": "L004", "page": "luxe", "t": "tshirt", "b": "Iceberg", "n": "T-shirt Vertical", "sell": 210, "old": 702, "src": "images-luxe2/lx_004.jpg"}, {"id": "L005", "page": "luxe", "t": "tshirt", "b": "Iceberg", "n": "T-shirt Vertical", "sell": 226, "old": 702, "src": "images-luxe2/lx_005.jpg"}, {"id": "L006", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt col rond", "sell": 226, "old": 806, "src": "images-luxe2/lx_006.jpg"}, {"id": "L007", "page": "luxe", "t": "tshirt", "b": "Iceberg", "n": "T-shirt Vertical", "sell": 258, "old": 702, "src": "images-luxe2/lx_007.jpg"}, {"id": "L008", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt col rond", "sell": 274, "old": 806, "src": "images-luxe2/lx_008.jpg"}, {"id": "L009", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "Polo", "sell": 290, "old": 852, "src": "images-luxe2/lx_009.jpg"}, {"id": "L010", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt col rond", "sell": 306, "old": 921, "src": "images-luxe2/lx_010.jpg"}, {"id": "L011", "page": "luxe", "t": "tshirt", "b": "Boss Green", "n": "T-shirt", "sell": 322, "old": 656, "src": "images-luxe2/lx_011.jpg"}, {"id": "L012", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt col rond", "sell": 322, "old": 806, "src": "images-luxe2/lx_012.jpg"}, {"id": "L013", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt col rond", "sell": 322, "old": 806, "src": "images-luxe2/lx_013.jpg"}, {"id": "L014", "page": "luxe", "t": "tshirt", "b": "Boss Green", "n": "T-shirt", "sell": 339, "old": 656, "src": "images-luxe2/lx_014.jpg"}, {"id": "L015", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "Polo", "sell": 339, "old": 852, "src": "images-luxe2/lx_015.jpg"}, {"id": "L016", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt col rond", "sell": 339, "old": 806, "src": "images-luxe2/lx_016.jpg"}, {"id": "L017", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt col rond", "sell": 339, "old": 852, "src": "images-luxe2/lx_017.jpg"}, {"id": "L018", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt col rond", "sell": 339, "old": 806, "src": "images-luxe2/lx_018.jpg"}, {"id": "L019", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt", "sell": 339, "old": 656, "src": "images-luxe2/lx_019.jpg"}, {"id": "L020", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 339, "old": 438, "src": "images-luxe2/lx_020.jpg"}, {"id": "L021", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt col rond", "sell": 355, "old": 921, "src": "images-luxe2/lx_021.jpg"}, {"id": "L022", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt col rond", "sell": 355, "old": 852, "src": "images-luxe2/lx_022.jpg"}, {"id": "L023", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt col rond", "sell": 355, "old": 806, "src": "images-luxe2/lx_023.jpg"}, {"id": "L024", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt col rond", "sell": 355, "old": 806, "src": "images-luxe2/lx_024.jpg"}, {"id": "L025", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt", "sell": 355, "old": 656, "src": "images-luxe2/lx_025.jpg"}, {"id": "L026", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt", "sell": 355, "old": 702, "src": "images-luxe2/lx_026.jpg"}, {"id": "L027", "page": "luxe", "t": "tshirt", "b": "Baldessarini", "n": "T-shirt col rond", "sell": 387, "old": 645, "src": "images-luxe2/lx_027.jpg"}, {"id": "L028", "page": "luxe", "t": "tshirt", "b": "Calvin Klein", "n": "T-shirt", "sell": 387, "old": 438, "src": "images-luxe2/lx_028.jpg"}, {"id": "L029", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt col rond", "sell": 387, "old": 806, "src": "images-luxe2/lx_029.jpg"}, {"id": "L030", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt col rond", "sell": 387, "old": 852, "src": "images-luxe2/lx_030.jpg"}, {"id": "L031", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt Essential", "sell": 387, "old": 517, "src": "images-luxe2/lx_031.jpg"}, {"id": "L032", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt", "sell": 387, "old": 517, "src": "images-luxe2/lx_032.jpg"}, {"id": "L033", "page": "luxe", "t": "tshirt", "b": "Baldessarini", "n": "T-shirt col rond", "sell": 435, "old": 645, "src": "images-luxe2/lx_033.jpg"}, {"id": "L034", "page": "luxe", "t": "tshirt", "b": "Baldessarini", "n": "T-shirt col rond", "sell": 435, "old": 645, "src": "images-luxe2/lx_034.jpg"}, {"id": "L035", "page": "luxe", "t": "tshirt", "b": "Napapijri", "n": "T-shirt manches longues", "sell": 435, "old": 507, "src": "images-luxe2/lx_035.jpg"}, {"id": "L036", "page": "luxe", "t": "tshirt", "b": "Napapijri", "n": "Polo – regular fit", "sell": 435, "old": 818, "src": "images-luxe2/lx_036.jpg"}, {"id": "L037", "page": "luxe", "t": "tshirt", "b": "Napapijri", "n": "Polo – regular fit", "sell": 435, "old": 818, "src": "images-luxe2/lx_037.jpg"}, {"id": "L038", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 435, "old": 517, "src": "images-luxe2/lx_038.jpg"}, {"id": "L039", "page": "luxe", "t": "tshirt", "b": "EA7 Emporio Armani", "n": "T-shirt de sport", "sell": 451, "old": 864, "src": "images-luxe2/lx_039.jpg"}, {"id": "L040", "page": "luxe", "t": "tshirt", "b": "Napapijri", "n": "T-shirt manches longues", "sell": 451, "old": 507, "src": "images-luxe2/lx_040.jpg"}, {"id": "L041", "page": "luxe", "t": "tshirt", "b": "Napapijri", "n": "Polo – regular fit", "sell": 451, "old": 818, "src": "images-luxe2/lx_041.jpg"}, {"id": "L042", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "Polo", "sell": 451, "old": 921, "src": "images-luxe2/lx_042.jpg"}, {"id": "L043", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt", "sell": 451, "old": 702, "src": "images-luxe2/lx_043.jpg"}, {"id": "L044", "page": "luxe", "t": "tshirt", "b": "Guess", "n": "T-shirt col rond", "sell": 468, "old": 518, "src": "images-luxe2/lx_044.jpg"}, {"id": "L045", "page": "luxe", "t": "tshirt", "b": "Napapijri", "n": "Polo – regular fit", "sell": 468, "old": 829, "src": "images-luxe2/lx_045.jpg"}, {"id": "L046", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "Polo", "sell": 468, "old": 921, "src": "images-luxe2/lx_046.jpg"}, {"id": "L047", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "Polo", "sell": 468, "old": 921, "src": "images-luxe2/lx_047.jpg"}, {"id": "L048", "page": "luxe", "t": "tshirt", "b": "The Kooples", "n": "T-shirt manches longues", "sell": 468, "old": 1347, "src": "images-luxe2/lx_048.jpg"}, {"id": "L049", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 0, "src": "images-luxe2/lx_049.jpg"}, {"id": "L050", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 0, "src": "images-luxe2/lx_050.jpg"}, {"id": "L051", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 0, "src": "images-luxe2/lx_051.jpg"}, {"id": "L052", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 0, "src": "images-luxe2/lx_052.jpg"}, {"id": "L053", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 0, "src": "images-luxe2/lx_053.jpg"}, {"id": "L054", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 0, "src": "images-luxe2/lx_054.jpg"}, {"id": "L055", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt Essential", "sell": 468, "old": 0, "src": "images-luxe2/lx_055.jpg"}, {"id": "L056", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 0, "src": "images-luxe2/lx_056.jpg"}, {"id": "L057", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 0, "src": "images-luxe2/lx_057.jpg"}, {"id": "L058", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 0, "src": "images-luxe2/lx_058.jpg"}, {"id": "L059", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt Essential", "sell": 468, "old": 517, "src": "images-luxe2/lx_059.jpg"}, {"id": "L060", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 0, "src": "images-luxe2/lx_060.jpg"}, {"id": "L061", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 0, "src": "images-luxe2/lx_061.jpg"}, {"id": "L062", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 0, "src": "images-luxe2/lx_062.jpg"}, {"id": "L063", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt Essential", "sell": 468, "old": 517, "src": "images-luxe2/lx_063.jpg"}, {"id": "L064", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt", "sell": 468, "old": 0, "src": "images-luxe2/lx_064.jpg"}, {"id": "L065", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt", "sell": 468, "old": 517, "src": "images-luxe2/lx_065.jpg"}, {"id": "L066", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt", "sell": 468, "old": 517, "src": "images-luxe2/lx_066.jpg"}, {"id": "L067", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 541, "src": "images-luxe2/lx_067.jpg"}, {"id": "L068", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 0, "src": "images-luxe2/lx_068.jpg"}, {"id": "L069", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 0, "src": "images-luxe2/lx_069.jpg"}, {"id": "L070", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt Essential", "sell": 468, "old": 0, "src": "images-luxe2/lx_070.jpg"}, {"id": "L071", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt Essential", "sell": 468, "old": 517, "src": "images-luxe2/lx_071.jpg"}, {"id": "L072", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt", "sell": 468, "old": 541, "src": "images-luxe2/lx_072.jpg"}, {"id": "L073", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 468, "old": 0, "src": "images-luxe2/lx_073.jpg"}, {"id": "L074", "page": "luxe", "t": "tshirt", "b": "Hackett London", "n": "T-shirt manches longues", "sell": 516, "old": 645, "src": "images-luxe2/lx_074.jpg"}, {"id": "L075", "page": "luxe", "t": "tshirt", "b": "Napapijri", "n": "T-shirt manches longues", "sell": 516, "old": 541, "src": "images-luxe2/lx_075.jpg"}, {"id": "L076", "page": "luxe", "t": "tshirt", "b": "Napapijri", "n": "T-shirt manches longues", "sell": 516, "old": 0, "src": "images-luxe2/lx_076.jpg"}, {"id": "L077", "page": "luxe", "t": "tshirt", "b": "Napapijri", "n": "Polo – regular fit", "sell": 516, "old": 818, "src": "images-luxe2/lx_077.jpg"}, {"id": "L078", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "Polo", "sell": 516, "old": 921, "src": "images-luxe2/lx_078.jpg"}, {"id": "L079", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt manches longues", "sell": 516, "old": 632, "src": "images-luxe2/lx_079.jpg"}, {"id": "L080", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt manches longues", "sell": 516, "old": 690, "src": "images-luxe2/lx_080.jpg"}, {"id": "L081", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt", "sell": 516, "old": 541, "src": "images-luxe2/lx_081.jpg"}, {"id": "L082", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt", "sell": 516, "old": 690, "src": "images-luxe2/lx_082.jpg"}, {"id": "L083", "page": "luxe", "t": "tshirt", "b": "EA7 Emporio Armani", "n": "T-shirt manches longues", "sell": 532, "old": 760, "src": "images-luxe2/lx_083.jpg"}, {"id": "L084", "page": "luxe", "t": "tshirt", "b": "Guess", "n": "T-shirt manches longues", "sell": 532, "old": 0, "src": "images-luxe2/lx_085.jpg"}, {"id": "L085", "page": "luxe", "t": "tshirt", "b": "Joop!", "n": "Polo piqué", "sell": 532, "old": 656, "src": "images-luxe2/lx_086.jpg"}, {"id": "L086", "page": "luxe", "t": "tshirt", "b": "Lacoste", "n": "Lot de 3 T-shirts", "sell": 532, "old": 0, "src": "images-luxe2/lx_087.jpg"}, {"id": "L087", "page": "luxe", "t": "tshirt", "b": "Napapijri", "n": "Polo manches longues", "sell": 532, "old": 864, "src": "images-luxe2/lx_088.jpg"}, {"id": "L088", "page": "luxe", "t": "tshirt", "b": "Napapijri", "n": "Polo – regular fit Emira", "sell": 532, "old": 944, "src": "images-luxe2/lx_089.jpg"}, {"id": "L089", "page": "luxe", "t": "tshirt", "b": "Napapijri", "n": "Polo manches longues", "sell": 532, "old": 864, "src": "images-luxe2/lx_090.jpg"}, {"id": "L090", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt manches longues", "sell": 532, "old": 632, "src": "images-luxe2/lx_091.jpg"}, {"id": "L091", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt manches longues", "sell": 532, "old": 690, "src": "images-luxe2/lx_092.jpg"}, {"id": "L092", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 532, "old": 541, "src": "images-luxe2/lx_093.jpg"}, {"id": "L093", "page": "luxe", "t": "tshirt", "b": "Boss Orange", "n": "T-shirt Tegood", "sell": 564, "old": 0, "src": "images-luxe2/lx_094.jpg"}, {"id": "L094", "page": "luxe", "t": "tshirt", "b": "Diesel", "n": "T-shirt manches longues T-Just-Lis-Div", "sell": 564, "old": 806, "src": "images-luxe2/lx_095.jpg"}, {"id": "L095", "page": "luxe", "t": "tshirt", "b": "EA7 Emporio Armani", "n": "T-shirt de sport", "sell": 564, "old": 921, "src": "images-luxe2/lx_096.jpg"}, {"id": "L096", "page": "luxe", "t": "tshirt", "b": "Hugo", "n": "Lot de 2 T-shirts Blue 2", "sell": 564, "old": 679, "src": "images-luxe2/lx_097.jpg"}, {"id": "L097", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt", "sell": 564, "old": 656, "src": "images-luxe2/lx_098.jpg"}, {"id": "L098", "page": "luxe", "t": "tshirt", "b": "Boss Orange", "n": "T-shirt Tegood", "sell": 580, "old": 0, "src": "images-luxe2/lx_099.jpg"}, {"id": "L099", "page": "luxe", "t": "tshirt", "b": "Boss Orange", "n": "T-shirt Tegood", "sell": 580, "old": 0, "src": "images-luxe2/lx_100.jpg"}, {"id": "L100", "page": "luxe", "t": "tshirt", "b": "Hugo", "n": "Lot de 2 T-shirts Blue 2", "sell": 580, "old": 679, "src": "images-luxe2/lx_101.jpg"}, {"id": "L101", "page": "luxe", "t": "tshirt", "b": "Karl Lagerfeld", "n": "T-shirt manches longues", "sell": 580, "old": 1082, "src": "images-luxe2/lx_102.jpg"}, {"id": "L102", "page": "luxe", "t": "tshirt", "b": "Lacoste", "n": "T-shirt col rond", "sell": 580, "old": 760, "src": "images-luxe2/lx_103.jpg"}, {"id": "L103", "page": "luxe", "t": "tshirt", "b": "Lacoste", "n": "T-shirt col rond", "sell": 580, "old": 656, "src": "images-luxe2/lx_104.jpg"}, {"id": "L104", "page": "luxe", "t": "tshirt", "b": "Lacoste", "n": "T-shirt col rond", "sell": 580, "old": 760, "src": "images-luxe2/lx_105.jpg"}, {"id": "L105", "page": "luxe", "t": "tshirt", "b": "Lacoste", "n": "T-shirt col rond", "sell": 580, "old": 702, "src": "images-luxe2/lx_106.jpg"}, {"id": "L106", "page": "luxe", "t": "tshirt", "b": "Napapijri", "n": "T-shirt manches longues", "sell": 580, "old": 0, "src": "images-luxe2/lx_107.jpg"}, {"id": "L107", "page": "luxe", "t": "tshirt", "b": "Napapijri", "n": "Polo manches longues", "sell": 580, "old": 1036, "src": "images-luxe2/lx_108.jpg"}, {"id": "L108", "page": "luxe", "t": "tshirt", "b": "Plein Sport", "n": "T-shirt", "sell": 580, "old": 656, "src": "images-luxe2/lx_109.jpg"}, {"id": "L109", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 580, "old": 0, "src": "images-luxe2/lx_110.jpg"}, {"id": "L110", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond Script", "sell": 580, "old": 0, "src": "images-luxe2/lx_111.jpg"}, {"id": "L111", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 580, "old": 0, "src": "images-luxe2/lx_112.jpg"}, {"id": "L112", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt Performance", "sell": 580, "old": 645, "src": "images-luxe2/lx_113.jpg"}, {"id": "L113", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond", "sell": 580, "old": 690, "src": "images-luxe2/lx_114.jpg"}, {"id": "L114", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt col rond Script", "sell": 580, "old": 0, "src": "images-luxe2/lx_115.jpg"}, {"id": "L115", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt manches longues", "sell": 580, "old": 690, "src": "images-luxe2/lx_116.jpg"}, {"id": "L116", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt", "sell": 580, "old": 0, "src": "images-luxe2/lx_117.jpg"}, {"id": "L117", "page": "luxe", "t": "tshirt", "b": "Tommy Hilfiger", "n": "T-shirt", "sell": 580, "old": 0, "src": "images-luxe2/lx_118.jpg"}, {"id": "P001", "page": "promos", "t": "veste", "b": "Thomas Goodwin", "n": "Parka matelassée", "sell": 564, "old": 1393, "src": "images-promos/promo_01.jpg"}, {"id": "P002", "page": "promos", "t": "veste", "b": "S4 Jackets", "n": "Manteau mi-saison", "sell": 613, "old": 1716, "src": "images-promos/promo_02.jpg"}, {"id": "P003", "page": "promos", "t": "veste", "b": "S4 Jackets", "n": "Manteau matelassé", "sell": 758, "old": 2361, "src": "images-promos/promo_03.jpg"}, {"id": "P004", "page": "promos", "t": "veste", "b": "Benvenuto.", "n": "Manteau mi-saison", "sell": 806, "old": 2464, "src": "images-promos/promo_04.jpg"}, {"id": "P005", "page": "promos", "t": "veste", "b": "S4 Jackets", "n": "Manteau matelassé", "sell": 758, "old": 2361, "src": "images-promos/promo_05.jpg"}, {"id": "P006", "page": "promos", "t": "veste", "b": "Kensington Eastside", "n": "Manteau mi-saison", "sell": 838, "old": 1071, "src": "images-promos/promo_06.jpg"}, {"id": "P007", "page": "promos", "t": "veste", "b": "Kensington Eastside", "n": "Manteau mi-saison", "sell": 838, "old": 1071, "src": "images-promos/promo_07.jpg"}, {"id": "P008", "page": "promos", "t": "veste", "b": "S.Oliver Black Label", "n": "Manteau en laine mélangée", "sell": 838, "old": 2142, "src": "images-promos/promo_08.jpg"}, {"id": "P009", "page": "promos", "t": "veste", "b": "S4 Jackets", "n": "Veste matelassée", "sell": 387, "old": 1082, "src": "images-promos/promo_09.jpg"}, {"id": "P010", "page": "promos", "t": "veste", "b": "S4 Jackets", "n": "Veste matelassée", "sell": 419, "old": 1082, "src": "images-promos/promo_10.jpg"}, {"id": "P011", "page": "promos", "t": "veste", "b": "Sublevel", "n": "Veste mi-saison", "sell": 387, "old": 541, "src": "images-promos/promo_11.jpg"}, {"id": "P012", "page": "promos", "t": "chemise", "b": "Sublevel", "n": "Surchemise (shacket)", "sell": 435, "old": 656, "src": "images-promos/promo_12.jpg"}, {"id": "P013", "page": "promos", "t": "chemise", "b": "Sublevel", "n": "Surchemise (shacket)", "sell": 435, "old": 656, "src": "images-promos/promo_13.jpg"}, {"id": "P014", "page": "promos", "t": "chemise", "b": "Jack & Jones", "n": "Surchemise", "sell": 468, "old": 541, "src": "images-promos/promo_14.jpg"}, {"id": "P015", "page": "promos", "t": "chemise", "b": "Jack & Jones", "n": "Surchemise", "sell": 468, "old": 541, "src": "images-promos/promo_15.jpg"}, {"id": "P016", "page": "promos", "t": "veste", "b": "Brave Soul", "n": "Veste mi-saison", "sell": 468, "old": 679, "src": "images-promos/promo_16.jpg"}, {"id": "P017", "page": "promos", "t": "veste", "b": "Only & Sons", "n": "Blouson bomber", "sell": 451, "old": 656, "src": "images-promos/promo_17.jpg"}, {"id": "P018", "page": "promos", "t": "tshirt", "b": "Eight2Nine", "n": "T-shirt manches longues", "sell": 193, "old": 276, "src": "images-promos/promo_18.jpg"}, {"id": "P019", "page": "promos", "t": "tshirt", "b": "Eight2Nine", "n": "T-shirt manches longues", "sell": 193, "old": 276, "src": "images-promos/promo_19.jpg"}, {"id": "P020", "page": "promos", "t": "tshirt", "b": "Iceberg", "n": "T-shirt", "sell": 210, "old": 702, "src": "images-promos/promo_20.jpg"}, {"id": "P021", "page": "promos", "t": "tshirt", "b": "Sublevel", "n": "T-shirt manches longues", "sell": 210, "old": 380, "src": "images-promos/promo_21.jpg"}, {"id": "P022", "page": "promos", "t": "tshirt", "b": "Puma", "n": "T-shirt col rond", "sell": 242, "old": 253, "src": "images-promos/promo_22.jpg"}, {"id": "P023", "page": "promos", "t": "tshirt", "b": "Plein Sport", "n": "Polo", "sell": 290, "old": 852, "src": "images-promos/promo_23.jpg"}, {"id": "P024", "page": "promos", "t": "tshirt", "b": "Joma", "n": "Polo", "sell": 339, "old": 599, "src": "images-promos/promo_24.jpg"}, {"id": "P025", "page": "promos", "t": "tshirt", "b": "Nike", "n": "Polo", "sell": 322, "old": 0, "src": "images-promos/promo_25.jpg"}, {"id": "P026", "page": "promos", "t": "tshirt", "b": "U.S. Polo Assn.", "n": "Polo – regular fit", "sell": 339, "old": 1071, "src": "images-promos/promo_26.jpg"}, {"id": "P027", "page": "promos", "t": "tshirt", "b": "U.S. Polo Assn.", "n": "Polo – regular fit", "sell": 339, "old": 1071, "src": "images-promos/promo_27.jpg"}, {"id": "P028", "page": "promos", "t": "tshirt", "b": "Puma", "n": "Polo", "sell": 387, "old": 576, "src": "images-promos/promo_28.jpg"}, {"id": "P029", "page": "promos", "t": "tshirt", "b": "Nike", "n": "Polo piqué", "sell": 387, "old": 0, "src": "images-promos/promo_29.jpg"}, {"id": "P030", "page": "promos", "t": "tshirt", "b": "U.S. Polo Assn.", "n": "Polo – regular fit", "sell": 339, "old": 1071, "src": "images-promos/promo_30.jpg"}, {"id": "P031", "page": "promos", "t": "tshirt", "b": "Napapijri", "n": "Polo – regular fit", "sell": 435, "old": 818, "src": "images-promos/promo_31.jpg"}, {"id": "P032", "page": "promos", "t": "tshirt", "b": "Napapijri", "n": "Polo – regular fit", "sell": 435, "old": 818, "src": "images-promos/promo_32.jpg"}, {"id": "P033", "page": "promos", "t": "tshirt", "b": "Ellesse", "n": "Polo", "sell": 451, "old": 656, "src": "images-promos/promo_33.jpg"}, {"id": "P034", "page": "promos", "t": "tshirt", "b": "Plein Sport", "n": "Polo", "sell": 451, "old": 921, "src": "images-promos/promo_34.jpg"}, {"id": "P035", "page": "promos", "t": "chaussures", "b": "Puma", "n": "Baskets", "sell": 387, "old": 541, "src": "images-promos/promo_35.jpg"}, {"id": "P036", "page": "promos", "t": "chaussures", "b": "Bugatti", "n": "Baskets", "sell": 451, "old": 541, "src": "images-promos/promo_36.jpg"}, {"id": "P037", "page": "promos", "t": "chaussures", "b": "U.S. Polo Assn.", "n": "Baskets", "sell": 468, "old": 1071, "src": "images-promos/promo_37.jpg"}, {"id": "P038", "page": "promos", "t": "chaussures", "b": "Pepe Jeans", "n": "Baskets", "sell": 468, "old": 747, "src": "images-promos/promo_38.jpg"}, {"id": "P039", "page": "promos", "t": "chaussures", "b": "Crocs", "n": "Sabots", "sell": 516, "old": 599, "src": "images-promos/promo_39.jpg"}, {"id": "P040", "page": "promos", "t": "chaussures", "b": "Crocs", "n": "Sabots", "sell": 516, "old": 599, "src": "images-promos/promo_40.jpg"}, {"id": "P041", "page": "promos", "t": "chaussures", "b": "Crocs", "n": "Sabots", "sell": 516, "old": 656, "src": "images-promos/promo_41.jpg"}, {"id": "P042", "page": "promos", "t": "chaussures", "b": "Ellesse", "n": "Baskets", "sell": 516, "old": 541, "src": "images-promos/promo_42.jpg"}];
 const HEAD = {
-  chemises: ['Chemises', 'Chemises de marque', null],
+  chemises: ['Chemises', 'Chemises homme de grandes marques, coupes ajustées et classiques.', [['all','Tout']]],
   luxe: ['Collection Luxe', 'Tommy Hilfiger, Lacoste, Hugo, Boss, Emporio Armani, Plein Sport, Michael Kors…', [['all','Tout'],['chemise','Chemises'],['tshirt','T-shirts & polos']]],
-  promos: ['PROMOS', 'Vestes, surchemises, polos, baskets…', [['all','Tout'],['veste','Vestes & manteaux'],['chemise','Surchemises'],['tshirt','T-shirts & polos'],['chaussures','Chaussures']]]
+  promos: ['Promotions', 'Vestes, surchemises, polos et baskets à prix réduits.', [['all','Tout'],['veste','Vestes & manteaux'],['chemise','Surchemises'],['tshirt','T-shirts & polos'],['chaussures','Chaussures']]]
 };
+const CITIES = ['Casablanca', 'Mohammedia', 'Kenitra'];
+const CITY_LABEL = { Kenitra: 'Kénitra' };
 const SIZES = t => t === 'chaussures' ? ['39','40','41','42','43','44','45','46'] : ['S','M','L','XL','XXL'];
-let cur = 'chemises', filt = 'all', cart = [];
+const TYPE = { chemise: 'chemise', tshirt: 't-shirt / polo', veste: 'veste', chaussures: 'paire de chaussures' };
+
+let view = 'accueil', filt = 'all', sort = 'pert', onlyPromo = false, cart = [], step = 'cart', sending = false;
 try { cart = JSON.parse(localStorage.getItem('ma_cart') || '[]') || []; } catch (e) { cart = []; }
+if (!Array.isArray(cart)) cart = [];
 const save = () => { try { localStorage.setItem('ma_cart', JSON.stringify(cart)); } catch (e) {} };
+const $ = id => document.getElementById(id);
 const fmt = n => Math.round(n).toLocaleString('fr-FR') + ' MAD';
-const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+const esc = s => String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
 const byId = id => CAT.find(x => x.id === id);
+const pct = x => x.old ? Math.round((1 - x.sell / x.old) * 100) : 0;
+const cityL = c => CITY_LABEL[c] || c;
+
+/* images : chemins du dépôt GitHub */
 function fixSrc(s){ const m = /^images-luxe2\/lx_(\d+)\.jpg$/.exec(s||''); if (!m) return s; return (+m[1] <= 59 ? '2 - luxe partie 1/' : '3 - luxe partie 2/') + 'lx_' + m[1] + '.jpg'; }
 function imgErr(el){ if (el.dataset.f) return; el.dataset.f = 1; const f = el.getAttribute('src').split('/').pop(); el.src = /^lx_/.test(f) ? 'images-luxe2/' + f : f; }
-function render(){
-  document.querySelectorAll('nav a').forEach(a => a.classList.toggle('on', a.dataset.p === cur));
-  const h = HEAD[cur];
-  document.getElementById('head').innerHTML = `<div class="title">${h[0]}</div><div class="sub">${esc(h[1])}</div>` +
-    (h[2] ? `<div class="chips">${h[2].map(c => `<a data-f="${c[0]}" class="${filt===c[0]?'on':''}">${esc(c[1])}</a>`).join('')}</div>` : '');
-  const D = CAT.filter(x => x.page === cur && (filt === 'all' || x.t === filt));
-  document.getElementById('grid').innerHTML = D.map(x => { const pct = x.old ? Math.round((1 - x.sell / x.old) * 100) : 0;
-    return `<div class="card"><div class="img"><img loading="lazy" src="${esc(fixSrc(x.src))}" alt="${esc(x.b)}" onerror="imgErr(this)">${pct>0?`<span class="badge">-${pct}%</span>`:''}</div>
-    <div class="body"><div class="brand">${esc(x.b)}</div><div class="name">${esc(x.n)}</div>
-    <div class="prices">${x.old?`<span class="old">${fmt(x.old)}</span>`:''}<span class="now">${fmt(x.sell)}</span></div>
-    <div class="buy"><select aria-label="Taille" id="s_${x.id}">${SIZES(x.t).map(s=>`<option>${s}</option>`).join('')}</select><button class="btn" data-add="${x.id}">Ajouter</button></div></div></div>`; }).join('');
+document.querySelectorAll('img.fx').forEach(i => { i.onerror = () => imgErr(i); i.src = fixSrc(i.dataset.src); });
+const IMG = (x, cls, eager) => `<img ${eager ? '' : 'loading="lazy"'} decoding="async" width="352" height="429" src="${esc(fixSrc(x.src))}" alt="${esc(x.b + ' — ' + x.n)}" onerror="imgErr(this)"${cls ? ` class="${cls}"` : ''}>`;
+
+/* ===== WhatsApp / réseaux / avis ===== */
+const waUrl = msg => 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg || WHATSAPP_MESSAGE);
+if (WHATSAPP_NUMBER) {
+  document.querySelectorAll('[data-wa]').forEach(a => { a.href = waUrl(); a.target = '_blank'; a.rel = 'noopener'; a.hidden = false; });
+  document.querySelectorAll('.wa-li').forEach(li => li.hidden = false);
 }
-function renderCart(){
-  cart = cart.filter(l => byId(l.id));
-  document.getElementById('count').textContent = cart.reduce((a, l) => a + l.qty, 0);
-  document.getElementById('lines').innerHTML = cart.length ? cart.map((l, i) => { const x = byId(l.id);
-    return `<div class="line"><img src="${esc(fixSrc(x.src))}" alt="" onerror="imgErr(this)"><div style="flex:1"><b>${esc(x.b)}</b><div style="font-size:13px;color:var(--muted)">${esc(x.n)} · Taille ${esc(l.size)}</div>
-    <div class="q"><button data-q="${i}" data-d="-1">−</button>${l.qty}<button data-q="${i}" data-d="1">+</button> <span style="margin-left:auto;font-weight:600">${fmt(x.sell*l.qty)}</span></div>
-    <button class="rm" data-rm="${i}">Retirer</button></div></div>`; }).join('') : '<p style="color:var(--muted)">Votre panier est vide.</p>';
-  document.getElementById('total').textContent = fmt(cart.reduce((a, l) => a + byId(l.id).sell * l.qty, 0));
-  save();
+$('socials').innerHTML = [[INSTAGRAM_URL,'Instagram'],[FACEBOOK_URL,'Facebook'],[WHATSAPP_NUMBER ? waUrl() : '','WhatsApp']]
+  .filter(s => s[0]).map(s => `<li><a href="${esc(s[0])}" target="_blank" rel="noopener">${s[1]}</a></li>`).join('');
+$('reviews').innerHTML = REVIEWS.length
+  ? `<div class="reviews">${REVIEWS.map(r => `<div class="rev"><div class="st">${'★'.repeat(Math.max(1, Math.min(5, r.note || 5)))}</div><p>« ${esc(r.texte)} »</p><small>${esc(r.nom)}${r.ville ? ' — ' + esc(r.ville) : ''}</small></div>`).join('')}</div>`
+  : `<div class="rev-empty">Les premiers avis de nos clients apparaîtront ici.${WHATSAPP_NUMBER ? ` <a href="${esc(waUrl('Bonjour Maison Atlas Homme, je souhaite laisser un avis.'))}" target="_blank" rel="noopener">Partager votre avis</a>` : ''}</div>`;
+$('yr').textContent = new Date().getFullYear();
+
+/* ===== cartes produit ===== */
+function card(x){
+  const p = pct(x);
+  return `<article class="card">
+    <button class="ph" data-qv="${esc(x.id)}" aria-label="Voir ${esc(x.b)} — ${esc(x.n)}">${IMG(x)}
+      <span class="tags">${p > 0 ? `<span class="tag">-${p}%</span>` : ''}${x.page === 'promos' ? '<span class="tag dark">PROMO</span>' : ''}</span>
+      <span class="qv" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span></button>
+    <div class="info"><div class="brand">${esc(x.b)}</div><div class="pname">${esc(x.n)}</div>
+      <div class="price ${x.old ? 'promo' : ''}"><span class="now">${fmt(x.sell)}</span>${x.old ? `<span class="old">${fmt(x.old)}</span>` : ''}</div>
+      <button class="btn" data-qv="${esc(x.id)}">${x.page === 'promos' ? 'Profiter de l’offre' : 'Ajouter au panier'}</button></div></article>`;
 }
-document.addEventListener('click', e => {
-  const t = e.target.closest('[data-p],[data-f],[data-add],[data-q],[data-rm]'); if (!t) return;
-  if (t.dataset.p) { cur = t.dataset.p; filt = 'all'; render(); scrollTo(0, 0); }
-  else if (t.dataset.f) { filt = t.dataset.f; render(); }
-  else if (t.dataset.add) { const id = t.dataset.add, size = document.getElementById('s_' + id).value;
-    const l = cart.find(l => l.id === id && l.size === size); if (l) l.qty = Math.min(10, l.qty + 1); else cart.push({ id, size, qty: 1 });
-    renderCart(); t.textContent = 'Ajouté ✓'; setTimeout(() => t.textContent = 'Ajouter', 1200); }
-  else if (t.dataset.q) { const l = cart[+t.dataset.q]; l.qty = Math.max(1, Math.min(10, l.qty + (+t.dataset.d))); renderCart(); }
-  else if (t.dataset.rm) { cart.splice(+t.dataset.rm, 1); renderCart(); }
-});
-const drawer = document.getElementById('drawer');
-document.getElementById('cartbtn').onclick = () => drawer.classList.add('open');
-document.getElementById('close').onclick = () => drawer.classList.remove('open');
-drawer.onclick = e => { if (e.target === drawer) drawer.classList.remove('open'); };
-document.getElementById('form').onsubmit = async e => {
-  e.preventDefault(); const msg = document.getElementById('msg'), btn = document.getElementById('send');
-  if (!cart.length) { msg.innerHTML = '<span class="err">Votre panier est vide.</span>'; return; }
-  if (!API_URL || API_URL.indexOf('http') !== 0) { msg.innerHTML = '<span class="err">Commandes bientôt disponibles.</span>'; return; }
-  const f = Object.fromEntries(new FormData(e.target));
-  btn.disabled = true; msg.textContent = 'Envoi de la commande…';
+function renderFeatured(){
+  const pick = [...CAT].filter(x => x.old).sort((a, b) => pct(b) - pct(a));
+  const seen = new Set(), out = [];
+  for (const x of pick) { const k = x.b + x.page; if (seen.has(k)) continue; seen.add(k); out.push(x); if (out.length === 8) break; }
+  $('featured').innerHTML = out.map(card).join('');
+}
+
+/* ===== boutique : filtres / tri ===== */
+function filterHTML(mobile){
+  const h = HEAD[view]; if (!h) return '';
+  const chips = h[2].length > 1 ? `<div style="display:flex;gap:8px;flex-wrap:wrap">${h[2].map(c => `<button class="chip ${filt===c[0]?'on':''}" data-f="${c[0]}">${esc(c[1])}</button>`).join('')}</div>` : '';
+  const sel = `<select class="sort" data-sort aria-label="Trier"><option value="pert" ${sort==='pert'?'selected':''}>Pertinence</option><option value="asc" ${sort==='asc'?'selected':''}>Prix croissant</option><option value="desc" ${sort==='desc'?'selected':''}>Prix décroissant</option><option value="disc" ${sort==='disc'?'selected':''}>Meilleures réductions</option></select>`;
+  const tg = `<label class="tgl"><input type="checkbox" data-promo ${onlyPromo?'checked':''}> Promotions uniquement</label>`;
+  if (!mobile) return chips + sel + tg;
+  return `${chips ? `<p class="slabel" style="margin:18px 0 10px">Catégorie</p>${chips}` : ''}<p class="slabel" style="margin:22px 0 10px">Trier par</p>${sel.replace('class="sort"','class="sort" style="width:100%;min-height:50px"')}<p class="slabel" style="margin:22px 0 10px">Afficher</p>${tg}`;
+}
+function list(){
+  let D = CAT.filter(x => x.page === view && (filt === 'all' || x.t === filt) && (!onlyPromo || x.old > 0));
+  if (sort === 'asc') D = [...D].sort((a, b) => a.sell - b.sell);
+  else if (sort === 'desc') D = [...D].sort((a, b) => b.sell - a.sell);
+  else if (sort === 'disc') D = [...D].sort((a, b) => pct(b) - pct(a));
+  return D;
+}
+function renderShop(){
+  const h = HEAD[view];
+  $('s-title').textContent = h[0]; $('s-sub').textContent = h[1];
+  const D = list();
+  $('s-n').textContent = D.length + ' article' + (D.length > 1 ? 's' : '');
+  $('deskf').innerHTML = filterHTML(false);
+  $('fbody').innerHTML = filterHTML(true);
+  const nf = (filt !== 'all') + (sort !== 'pert') + onlyPromo;
+  $('fcount').hidden = !nf; $('fcount').textContent = nf;
+  $('fapply').textContent = 'Voir les ' + D.length + ' article' + (D.length > 1 ? 's' : '');
+  $('grid').innerHTML = D.length ? D.map(card).join('') : '<div class="empty">Aucun article ne correspond à ces filtres.<br><button class="link" data-reset>Réinitialiser les filtres</button></div>';
+}
+
+/* ===== navigation ===== */
+function go(v, keepScroll){
+  if (!['accueil','chemises','luxe','promos'].includes(v)) v = 'accueil';
+  if (v !== view) { filt = 'all'; sort = 'pert'; onlyPromo = false; }
+  view = v;
+  $('v-home').hidden = v !== 'accueil'; $('v-shop').hidden = v === 'accueil';
+  document.querySelectorAll('nav.main a').forEach(a => a.classList.toggle('on', a.dataset.go === v));
+  document.title = v === 'accueil' ? 'Maison Atlas Homme — Vêtements homme de marque à prix réduits' : HEAD[v][0] + ' — Maison Atlas Homme';
+  if (v === 'accueil') renderFeatured(); else renderShop();
+  if (!keepScroll) window.scrollTo(0, 0);
+}
+window.addEventListener('hashchange', () => { closeAll(); go(location.hash.slice(1)); });
+
+/* ===== overlays ===== */
+let openPanel = null;
+function openP(id){ closeAll(true); openPanel = $(id); openPanel.classList.add('open'); $('bg').classList.add('open'); document.body.classList.add('lock'); }
+function closeAll(keepBg){
+  document.querySelectorAll('.panel.open,.mnav.open').forEach(p => p.classList.remove('open'));
+  if (!keepBg) { $('bg').classList.remove('open'); document.body.classList.remove('lock'); }
+  openPanel = null;
+}
+$('bg').onclick = () => closeAll();
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+$('burger').onclick = () => { closeAll(true); $('mnav').classList.add('open'); $('bg').classList.add('open'); document.body.classList.add('lock'); };
+$('fopen').onclick = () => openP('fsheet');
+
+/* ===== fiche produit ===== */
+let qvState = null;
+function openQV(id){
+  const x = byId(id); if (!x) return;
+  qvState = { id, size: null, qty: 1 };
+  const p = pct(x);
+  $('qvc').innerHTML = `<div class="qvimg">${IMG(x, '', true)}</div>
+    <div class="qvbody">
+      <div class="brand">${esc(x.b)}</div><h2>${esc(x.n)}</h2>
+      <div class="price ${x.old ? 'promo' : ''}"><span class="now">${fmt(x.sell)}</span>${x.old ? `<span class="old">${fmt(x.old)}</span><span class="tag">-${p}%</span>` : ''}</div>
+      <p class="desc">${esc(x.b)} — ${esc(x.n.toLowerCase())}. Article de marque authentique, sélectionné par Maison Atlas Homme. Taille et disponibilité confirmées par téléphone avant la livraison.</p>
+      <div class="slabel">Choisissez votre taille <span id="qverr" hidden>Merci de choisir une taille</span></div>
+      <div class="sizes" role="radiogroup" aria-label="Taille">${SIZES(x.t).map(s => `<button class="size" role="radio" aria-checked="false" data-size="${s}">${s}</button>`).join('')}</div>
+      <div class="qvrow"><div class="qty"><button data-qvq="-1" aria-label="Moins">−</button><span id="qvq">1</span><button data-qvq="1" aria-label="Plus">+</button></div>
+        <button class="btn" id="qvadd">Ajouter au panier</button></div>
+      <p class="small">💵 Paiement à la livraison, en espèces<br>🚚 Livraison Casablanca • Mohammedia • Kénitra${WHATSAPP_NUMBER ? `<br><a href="${esc(waUrl('Bonjour Maison Atlas Homme, je souhaite des informations sur : ' + x.b + ' — ' + x.n + ' (' + fmt(x.sell) + ')'))}" target="_blank" rel="noopener">Une question ? Écrivez-nous sur WhatsApp</a>` : ''}</p>
+    </div>`;
+  $('qvc').scrollTop = 0;
+  openP('qv');
+}
+function addToCart(id, size, qty){
+  const l = cart.find(l => l.id === id && l.size === size);
+  if (l) l.qty = Math.min(10, l.qty + qty); else cart.push({ id, size, qty: Math.min(10, qty) });
+  renderCart(true);
+}
+let tt;
+function toast(t){ $('toastt').textContent = t; $('toast').classList.add('show'); clearTimeout(tt); tt = setTimeout(() => $('toast').classList.remove('show'), 3200); }
+$('toastb').onclick = () => { $('toast').classList.remove('show'); openCart(); };
+
+/* ===== panier & commande ===== */
+const lines = () => cart.filter(l => byId(l.id));
+const nItems = () => lines().reduce((a, l) => a + l.qty, 0);
+const subtotal = () => lines().reduce((a, l) => a + byId(l.id).sell * l.qty, 0);
+function renderCart(bump){
+  cart = lines(); save();
+  const n = nItems(), c = $('count');
+  c.textContent = n; c.dataset.n = n;
+  if (bump) { c.classList.remove('bump'); void c.offsetWidth; c.classList.add('bump'); }
+  if ($('cart').classList.contains('open')) drawCart();
+}
+function drawCart(){
+  if (!cart.length && step !== 'form') step = 'cart';
+  if (step === 'form' && !cart.length) step = 'cart';
+  $('ctitle').textContent = step === 'form' ? 'Finaliser la commande' : 'Votre panier';
+  if (!cart.length) {
+    $('cbody').innerHTML = `<div class="cempty"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><p>Votre panier est vide.</p><button class="btn ghost" data-close data-go="luxe">Découvrir la collection</button></div>`;
+    $('cfoot').innerHTML = ''; $('cfoot').hidden = true; return;
+  }
+  $('cfoot').hidden = false;
+  const sum = `<div class="sumrow"><span>Sous-total (${nItems()} article${nItems() > 1 ? 's' : ''})</span><span>${fmt(subtotal())}</span></div>
+    <div class="sumrow"><span>Livraison</span><span>Confirmée par téléphone</span></div>
+    <div class="sumrow tot"><span>Total</span><span>${fmt(subtotal())}</span></div>`;
+  if (step === 'cart') {
+    $('cbody').innerHTML = cart.map((l, i) => { const x = byId(l.id);
+      return `<div class="line">${IMG(x)}<div class="lt"><span class="brand">${esc(x.b)}</span><span style="font-size:14px">${esc(x.n)}</span>
+        <span class="meta">Taille ${esc(l.size)} · ${fmt(x.sell)} / pièce</span>
+        <div class="lrow"><div class="qty"><button data-q="${i}" data-d="-1" aria-label="Diminuer la quantité">−</button><span>${l.qty}</span><button data-q="${i}" data-d="1" aria-label="Augmenter la quantité">+</button></div><b>${fmt(x.sell * l.qty)}</b></div>
+        <button class="link" style="align-self:flex-start;margin-top:6px" data-rm="${i}">Supprimer</button></div></div>`; }).join('');
+    $('cfoot').innerHTML = sum + `<button class="btn block" style="margin-top:12px" id="tocheckout">Passer la commande</button><p class="small" style="text-align:center;margin-top:8px">💵 Paiement à la livraison · aucun paiement en ligne</p>`;
+  } else {
+    const v = window._form || {};
+    $('cbody').innerHTML = `<button class="back" data-step="cart">← Retour au panier</button>
+      <div class="recap">${cart.map(l => { const x = byId(l.id); return `<div><span>${l.qty} × ${esc(x.b)} — ${esc(x.n)} <span class="meta">(T. ${esc(l.size)})</span></span><span>${fmt(x.sell * l.qty)}</span></div>`; }).join('')}
+        <div style="border-top:1px solid var(--line);margin-top:6px;padding-top:8px;font-weight:600"><span>Total · ${nItems()} article${nItems() > 1 ? 's' : ''}</span><span>${fmt(subtotal())}</span></div></div>
+      <form class="form" id="form" novalidate>
+        <div data-fld="nom"><label for="f-nom">Nom complet *</label><input id="f-nom" name="nom" autocomplete="name" maxlength="80" value="${esc(v.nom)}"><div class="err-t">Merci d’indiquer votre nom complet.</div></div>
+        <div data-fld="telephone"><label for="f-tel">Téléphone *</label><input id="f-tel" name="telephone" type="tel" inputmode="tel" autocomplete="tel" placeholder="06 12 34 56 78" maxlength="20" value="${esc(v.telephone)}"><div class="err-t">Numéro marocain invalide (ex. 06 12 34 56 78).</div></div>
+        <div data-fld="ville"><label for="f-ville">Ville *</label><select id="f-ville" name="ville"><option value="">Choisir votre ville…</option>${CITIES.map(c => `<option value="${c}" ${v.ville===c?'selected':''}>${cityL(c)}</option>`).join('')}</select><div class="err-t">Livraison uniquement à Casablanca, Mohammedia et Kénitra.</div></div>
+        <div data-fld="adresse"><label for="f-adr">Adresse de livraison *</label><textarea id="f-adr" name="adresse" autocomplete="street-address" maxlength="250" placeholder="Quartier, rue, numéro, étage…">${esc(v.adresse)}</textarea><div class="err-t">Merci d’indiquer votre adresse.</div></div>
+        <div><label for="f-note">Remarque (optionnel)</label><input id="f-note" name="note" maxlength="200" value="${esc(v.note)}"></div>
+      </form>
+      <div class="note"><b>Paiement à la livraison</b>Vous payez uniquement à la réception de votre commande, en espèces.<br><br>Nous vous contactons pour confirmer votre commande, votre taille et la disponibilité.</div>`;
+    $('cfoot').innerHTML = `<div class="sumrow tot" style="border:0;margin:0;padding:0 0 10px"><span>Total à payer à la livraison</span><span>${fmt(subtotal())}</span></div><button class="btn block" id="confirm">Confirmer ma commande</button><div class="msg" id="msg" role="alert"></div>`;
+  }
+}
+function openCart(){ step = 'cart'; drawCart(); openP('cart'); }
+$('cartbtn').onclick = openCart;
+
+function phoneOk(t){
+  let d = String(t || '').replace(/[^\d+]/g, '');
+  if (d.startsWith('+212')) d = '0' + d.slice(4); else if (d.startsWith('00212')) d = '0' + d.slice(5); else if (d.startsWith('212') && d.length === 12) d = '0' + d.slice(3);
+  return /^0[5-7]\d{8}$/.test(d);
+}
+function readForm(){
+  const f = $('form'); if (!f) return null;
+  const v = Object.fromEntries(new FormData(f)); Object.keys(v).forEach(k => v[k] = String(v[k]).trim());
+  window._form = v; return v;
+}
+async function confirmOrder(){
+  if (sending) return;
+  const v = readForm(); const msg = $('msg'); msg.textContent = '';
+  const bad = { nom: v.nom.length < 3, telephone: !phoneOk(v.telephone), ville: !CITIES.includes(v.ville), adresse: v.adresse.length < 6 };
+  document.querySelectorAll('[data-fld]').forEach(el => el.classList.toggle('bad', !!bad[el.dataset.fld]));
+  const first = Object.keys(bad).find(k => bad[k]);
+  if (first) { const el = document.querySelector(`[data-fld="${first}"] input,[data-fld="${first}"] select,[data-fld="${first}"] textarea`); el && el.focus(); msg.textContent = 'Merci de corriger les champs en rouge.'; return; }
+  if (!cart.length) { msg.textContent = 'Votre panier est vide.'; return; }
+  if (!API_URL || API_URL.indexOf('http') !== 0) { msg.textContent = 'Les commandes en ligne seront bientôt disponibles.'; return; }
+  const btn = $('confirm'); sending = true; btn.disabled = true; btn.textContent = 'Envoi en cours…';
+  const snap = cart.map(l => ({ ...l, x: byId(l.id) })), total = subtotal(), city = v.ville;
   try {
-    const r = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: 'order', customer: f, items: cart }) });
+    const r = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: 'order', customer: v, items: cart }) });
     const j = await r.json();
     if (!j.ok) throw new Error(j.error || 'Erreur');
-    cart = []; renderCart(); e.target.reset();
-    msg.innerHTML = `<div class="note">Merci ! Commande <b>${esc(j.num)}</b> reçue (${fmt(j.total)} à payer en espèces à la livraison). Nous vous appelons pour confirmer.</div>`;
-  } catch (err) { msg.innerHTML = '<span class="err">' + esc(err.message || 'Erreur réseau, réessayez.') + '</span>'; }
-  btn.disabled = false;
-};
+    cart = []; window._form = {}; renderCart(); step = 'cart';
+    showDone(j, snap, city, typeof j.total === 'number' ? j.total : total);
+  } catch (err) {
+    msg.textContent = (err && err.message && err.message !== 'Failed to fetch') ? err.message : 'Erreur de connexion. Vérifiez votre réseau et réessayez.';
+    btn.disabled = false; btn.textContent = 'Confirmer ma commande';
+  }
+  sending = false;
+}
+function showDone(j, snap, city, total){
+  $('donec').innerHTML = `<div class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h2>Merci pour votre commande !</h2>
+    <p style="margin:0">Votre commande a bien été enregistrée${j.num ? ` sous la référence <b>${esc(j.num)}</b>` : ''}.</p>
+    <p style="color:var(--muted);margin:8px 0 0">Notre équipe vous contactera prochainement pour confirmer votre commande et les détails de livraison.</p>
+    <div class="recap">${snap.map(l => `<div><span>${l.qty} × ${esc(l.x.b)} — ${esc(l.x.n)} <span class="meta">(T. ${esc(l.size)})</span></span><span>${fmt(l.x.sell * l.qty)}</span></div>`).join('')}
+      <div style="border-top:1px solid var(--line);margin-top:6px;padding-top:8px"><span>Livraison</span><span>${esc(cityL(city))}</span></div>
+      <div style="font-weight:600"><span>Total · paiement à la livraison</span><span>${fmt(total)}</span></div></div>
+    <div class="note" style="text-align:left"><b>Paiement à la livraison</b>Vous payez en espèces à la réception de votre commande.</div>
+    <button class="btn block" data-close data-go="accueil">Continuer mes achats</button>`;
+  openP('done');
+}
+
+/* ===== délégation des clics ===== */
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-go],[data-qv],[data-size],[data-qvq],#qvadd,[data-q],[data-rm],#tocheckout,[data-step],#confirm,[data-f],[data-reset],[data-close]');
+  if (!t) return;
+  if (t.dataset.size) { qvState.size = t.dataset.size; document.querySelectorAll('.size').forEach(b => { b.classList.toggle('on', b === t); b.setAttribute('aria-checked', b === t); }); $('qverr').hidden = true; return; }
+  if (t.dataset.qvq) { qvState.qty = Math.max(1, Math.min(10, qvState.qty + (+t.dataset.qvq))); $('qvq').textContent = qvState.qty; return; }
+  if (t.id === 'qvadd') { if (!qvState.size) { $('qverr').hidden = false; return; }
+    addToCart(qvState.id, qvState.size, qvState.qty); const x = byId(qvState.id); closeAll(); toast(`${x.b} · taille ${qvState.size} ajouté au panier`); return; }
+  if (t.dataset.qv) { e.preventDefault(); openQV(t.dataset.qv); return; }
+  if (t.dataset.q !== undefined) { const l = cart[+t.dataset.q]; if (l) { l.qty = Math.max(1, Math.min(10, l.qty + (+t.dataset.d))); renderCart(); drawCart(); } return; }
+  if (t.dataset.rm !== undefined) { cart.splice(+t.dataset.rm, 1); renderCart(); drawCart(); return; }
+  if (t.id === 'tocheckout') { step = 'form'; drawCart(); $('cbody').scrollTop = 0; return; }
+  if (t.dataset.step) { readForm(); step = t.dataset.step; drawCart(); return; }
+  if (t.id === 'confirm') { confirmOrder(); return; }
+  if (t.dataset.f) { filt = t.dataset.f; renderShop(); return; }
+  if (t.dataset.reset !== undefined) { filt = 'all'; sort = 'pert'; onlyPromo = false; renderShop(); return; }
+  if (t.dataset.go) { e.preventDefault(); closeAll(); const v = t.dataset.go; if (location.hash.slice(1) === v || (!location.hash && v === 'accueil')) go(v); else location.hash = v; return; }
+  if (t.dataset.close !== undefined) { closeAll(); return; }
+});
+document.addEventListener('change', e => {
+  if (e.target.matches('[data-sort]')) { sort = e.target.value; renderShop(); }
+  if (e.target.matches('[data-promo]')) { onlyPromo = e.target.checked; renderShop(); }
+});
+document.addEventListener('input', e => { const f = e.target.closest('[data-fld]'); if (f) f.classList.remove('bad'); });
+
+/* ===== catalogue en direct ===== */
 async function live(){
   if (!API_URL || API_URL.indexOf('http') !== 0) return;
-  try { const j = await (await fetch(API_URL + '?action=catalog')).json(); if (j.ok && j.items && j.items.length) { CAT = j.items; render(); renderCart(); } } catch (e) {}
+  try { const j = await (await fetch(API_URL + '?action=catalog')).json();
+    if (j.ok && j.items && j.items.length) { CAT = j.items; go(view, true); renderCart(); } } catch (e) {}
 }
-render(); renderCart(); live();
+go(location.hash.slice(1), true); renderCart(); live();
 </script>
 </body>
 </html>
