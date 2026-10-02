@@ -56,7 +56,7 @@ td input[type=number]{width:80px}
   <div id="v_products" hidden>
     <div class="row" style="margin-bottom:10px"><select id="ppage"><option value="">Toutes les pages</option><option value="chemises">Chemises</option><option value="luxe">Collection Luxe</option><option value="promos">PROMOS</option></select><input id="pq" placeholder="Rechercher marque…"><button class="btn acc" id="psave">Enregistrer les modifications</button><span id="pmsg" class="msg"></span></div>
     <p class="muted" style="margin:0 0 8px">« Prix forcé » remplace le prix calculé (laisser vide = calcul automatique). Décocher « En ligne » retire la pièce du site.</p>
-    <div class="tablewrap"><table><thead><tr><th></th><th>Pièce</th><th>Page</th><th>Achat CHF</th><th>Coût MAD</th><th>Prix vente</th><th>Prix forcé</th><th>Gain</th><th>En ligne</th></tr></thead><tbody id="pbody"></tbody></table></div>
+    <div class="tablewrap"><table><thead><tr><th></th><th>Pièce</th><th>Page</th><th>Réf BestSecret</th><th>Achat CHF</th><th>Coût MAD</th><th>Prix vente</th><th>Prix forcé</th><th>Gain</th><th>En ligne</th></tr></thead><tbody id="pbody"></tbody></table></div>
   </div>
   <div id="v_settings" hidden>
     <div class="box">
@@ -70,6 +70,7 @@ function fixSrc(s){ const m = /^images-luxe2\/lx_(\d+)\.jpg$/.exec(s||''); if (!
 const API_URL = 'https://script.google.com/macros/s/AKfycbxzFx6xKjUAVDkdF3ckkng7SYuVw9eXeaOR_qqULSqozyYvkdrYiRjDNNHwU4H05pewUA/exec';
 let KEY = '', DB = null, seen = new Set(), dirty = {}, tab = 'orders';
 try { KEY = sessionStorage.getItem('ma_key') || ''; } catch (e) {}
+const linkify = t => esc(t).replace(/https:\/\/www\.bestsecret\.com\/product\.htm\?code=\d+(&amp;colorCode=\w+)?/g, u => `<a href="${u}" target="_blank" rel="noopener">Ouvrir sur BestSecret ↗</a>`);
 const fmt = n => Math.round(Number(n) || 0).toLocaleString('fr-FR') + ' MAD';
 const esc = s => String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
 async function api(body){
@@ -101,7 +102,7 @@ function renderOrders(){
     <span style="margin-left:auto"><b>${fmt(o.total_mad)}</b> à encaisser · <span class="gain">gain ${fmt(o.gain_mad)}</span></span></div>
     <div style="margin-top:6px"><b>${esc(o.nom)}</b> · <a href="tel:${esc(String(o.telephone).replace(/^'/,'').replace(/\s/g,''))}">${esc(String(o.telephone).replace(/^'/,''))}</a> · <b>${esc(o.ville)}</b></div>
     <div class="muted">${esc(o.adresse)}${o.note ? ' · Note : ' + esc(o.note) : ''}</div>
-    <pre>${esc(o.articles)}</pre></div>`).join('') : '<p class="muted">Aucune commande pour le moment.</p>';
+    <pre>${linkify(o.articles)}</pre></div>`).join('') : '<p class="muted">Aucune commande pour le moment.</p>';
 }
 function renderProducts(){
   const pg = document.getElementById('ppage').value, q = document.getElementById('pq').value.toLowerCase();
@@ -109,6 +110,7 @@ function renderProducts(){
   document.getElementById('pbody').innerHTML = P.map(p => `<tr>
     <td><img src="${esc(fixSrc(p.src))}" alt="" onerror="this.onerror=null;this.src=this.src.split('/').pop()"></td>
     <td><b>${esc(p.b)}</b><br><span class="muted">${esc(p.n)} · ${esc(p.id)}</span></td><td>${esc(p.page)}</td>
+    <td>${p.lien?`<a href="${esc(p.lien)}" target="_blank" rel="noopener">${esc(p.ref||"Voir")} ↗</a>`:'<span class="muted">—</span>'}</td>
     <td><input type="number" step="0.5" value="${p.achat}" data-id="${p.id}" data-k="achat"></td>
     <td>${fmt(p.cost)}</td><td><b>${fmt(p.sell)}</b></td>
     <td><input type="number" step="5" placeholder="auto" value="${p.force===''?'':p.force}" data-id="${p.id}" data-k="force"></td>
